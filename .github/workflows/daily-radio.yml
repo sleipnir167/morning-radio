@@ -1,0 +1,96 @@
+name: 朝の散歩ラジオ
+
+on:
+  schedule:
+    - cron: "30 20 * * *"   # UTC 20:30 = JST 05:30
+  workflow_dispatch:
+    inputs:
+      genre:
+        description: ジャンル（空なら曜日ごとの既定値）
+        required: false
+        type: string
+      chapters:
+        description: 章数
+        required: false
+        default: "5"
+        type: string
+      chars_per_chapter:
+        description: 1章あたりの文字数
+        required: false
+        default: "800"
+        type: string
+      provider:
+        description: LLMプロバイダ
+        required: false
+        default: gemini
+        type: choice
+        options: [gemini, openrouter]
+      model:
+        description: モデル名（空ならconfig.yamlの既定値）
+        required: false
+        type: string
+      voice:
+        description: 音声（空ならconfig.yamlの既定値）
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-radio
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: ffmpeg を用意
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: 依存関係をインストール
+        run: pip install -r requirements.txt
+
+      - name: 原稿と音声を生成
+        id: gen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GDRIVE_SERVICE_ACCOUNT_JSON: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}
+          GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
+          GENRE: ${{ inputs.genre }}
+          CHAPTERS: ${{ inputs.chapters }}
+          CHARS_PER_CHAPTER: ${{ inputs.chars_per_chapter }}
+          LLM_PROVIDER: ${{ inputs.provider }}
+          LLM_MODEL: ${{ inputs.model }}
+          TTS_VOICE: ${{ inputs.voice }}
+        run: python -m src.main
+
+      - name: リリースとして音声を公開
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.gen.outputs.tag }}" \
+            "${{ steps.gen.outputs.audio_path }}" \
+            "${{ steps.gen.outputs.script_path }}" \
+            --title "${{ steps.gen.outputs.date }} ${{ steps.gen.outputs.title }}" \
+            --notes "自動生成された放送回です。" \
+            || gh release upload "${{ steps.gen.outputs.tag }}" \
+                 "${{ steps.gen.outputs.audio_path }}" \
+                 "${{ steps.gen.outputs.script_path }}" --clobber
+
+      - name: 履歴とフィードをコミット
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add history docs
+          git diff --staged --quiet || git commit -m "放送: ${{ steps.gen.outputs.date }} ${{ steps.gen.outputs.title }}"
+          git pull --rebase --autostash
+          git push

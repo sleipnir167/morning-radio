@@ -1,0 +1,66 @@
+program:
+  title: 朝の散歩ラジオ
+  personality: ナナ
+  subtitle: 毎朝の散歩のおともに、今日の空気と話のタネを
+
+location:
+  name: 東京
+  latitude: 35.6895
+  longitude: 139.6917
+  timezone: Asia/Tokyo
+  morning_hours: [6, 7, 8, 9]
+
+script:
+  chapters: 5
+  chars_per_chapter: 800
+  total_chars_min: 3000
+  total_chars_max: 6000       # 5章×800字＋オープニング/つなぎ/エンディングで約5,400字・音声20分前後
+
+llm:
+  provider: gemini            # gemini | openrouter
+  gemini_model: gemini-2.5-flash
+  openrouter_model: deepseek/deepseek-v4-pro
+  temperature: 0.9
+  max_output_tokens: 8192
+  retries: 3
+
+tts:
+  voice: ja-JP-NanamiNeural   # ja-JP-KeitaNeural / ja-JP-MayuNeural / ja-JP-AoiNeural
+  rate: +8%
+  pitch: +0Hz
+  volume: +0%
+  pause_ms: 700               # 【SE: 間】に挿入する無音の長さ
+  chunk_chars: 1200
+
+history:
+  lookback_days: 30
+  max_topics_in_prompt: 60
+
+# 曜日ごとのジャンル。0=月曜 ... 6=日曜
+genres:
+  0: 政治・時事ニュース解説
+  1: 科学・テクノロジー
+  2: 歴史・地理の雑学
+  3: 健康・からだと睡眠
+  4: 海外の話題・異文化
+  5: カルチャー・アート・ことば
+  6: 今週の総集編と深掘り
+
+# ジャンルごとのニュース検索クエリ（Google News RSS）
+news_queries:
+  政治・時事ニュース解説: [日本 政治, 経済 政策, 国際情勢]
+  科学・テクノロジー: [科学 研究, AI 技術, 宇宙]
+  歴史・地理の雑学: [歴史 発見, 考古学, 世界遺産]
+  健康・からだと睡眠: [健康 研究, 睡眠, 栄養]
+  海外の話題・異文化: [海外 話題, 世界 文化, 欧州]
+  カルチャー・アート・ことば: [芸術 展覧会, 文学, 音楽]
+  今週の総集編と深掘り: [今週 ニュース]
+
+publish:
+  podcast:
+    enabled: true
+    base_url: ""              # 空ならGITHUB_REPOSITORYから自動生成
+    max_episodes: 60
+  gdrive:
+    enabled: true
+    folder_id: ""             # 環境変数 GDRIVE_FOLDER_ID で上書き可

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>朝の散歩ラジオ</title>
+    <link>https://myname.github.io/morning-radio</link>
+    <description>毎朝の散歩のおともに、今日の空気と話のタネを</description>
+    <atom:link href="https://myname.github.io/morning-radio/feed.xml" rel="self"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 29 Aug 2026 14:31:06 +0000</lastBuildDate>
+    <itunes:author>ナナ</itunes:author>
+    <itunes:category text="Society &amp; Culture"/>
+    <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-08-29 雨音とアートの境界線——文化の新しいかたちを聴く朝</title>
+      <description>芸術の境界線が溶ける2026年、文化とことばの新しいかたちを探る</description>
+      <guid isPermaLink="false">https://github.com/myname/morning-radio/releases/download/ep-20260829/radio-2026-08-29.mp3</guid>
+      <enclosure url="https://github.com/myname/morning-radio/releases/download/ep-20260829/radio-2026-08-29.mp3" length="5612832" type="audio/mpeg"/>
+      <pubDate>Sat, 29 Aug 2026 14:31:06 +0000</pubDate>
+      <itunes:duration>00:15:35</itunes:duration>
+    </item>
+  </channel>
+</rss>
