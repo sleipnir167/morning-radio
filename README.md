@@ -11,7 +11,7 @@
 | 役割 | 使うもの | 費用 |
 |---|---|---|
 | 実行基盤 | GitHub Actions（cron + 手動実行） | 無料（Publicリポジトリなら無制限） |
-| 原稿生成 | OpenRouter経由 DeepSeek V4 Pro（既定）/ Gemini API に切替可 | 約5円/回。Geminiなら無料 |
+| 原稿生成 | Gemini API（既定）/ OpenRouter経由の各モデルに切替可 | 無料枠。OpenRouterなら数円/回 |
 | 天気 | Open-Meteo | 無料・APIキー不要 |
 | ニュース | Google News RSS | 無料・APIキー不要 |
 | 音声合成 | Edge-TTS | 無料・APIキー不要 |
@@ -50,8 +50,8 @@ Privateでもよい（月2,000分の無料枠内で十分収まる）。
 
 | 名前 | 必須 | 内容 |
 |---|---|---|
-| `OPENROUTER_API_KEY` | ○ | 既定の DeepSeek V4 Pro を使う場合 |
-| `GEMINI_API_KEY` | | `llm.provider: gemini` に切り替える場合 |
+| `GEMINI_API_KEY` | ○ | 既定の Gemini を使う場合 |
+| `OPENROUTER_API_KEY` | | `llm.provider: openrouter` に切り替える場合 |
 | `GDRIVE_SERVICE_ACCOUNT_JSON` | | サービスアカウントのJSONを丸ごと貼る |
 | `GDRIVE_FOLDER_ID` | | 配信先フォルダのID |
 
@@ -112,16 +112,16 @@ model:             anthropic/claude-sonnet-4.5
 
 | provider | model の例 | 1回あたりの目安 |
 |---|---|---|
-| `openrouter` | `deepseek/deepseek-v4-pro`（既定） | 約5円 |
+| `gemini` | `gemini-2.5-flash`（既定） / `gemini-2.5-pro` | 無料枠 |
+| `openrouter` | `deepseek/deepseek-v4-pro` | 約5円 |
 | `openrouter` | `deepseek/deepseek-v3.2` | 約2円 |
 | `openrouter` | `anthropic/claude-sonnet-4.5` | 約20〜40円 |
-| `gemini` | `gemini-2.5-flash` / `gemini-2.5-pro` | 無料枠 |
 
 ### ローカル実行（Windows）
 
 ```powershell
 python -m pip install -r requirements.txt
-copy .env.example .env    # OPENROUTER_API_KEY を書く
+copy .env.example .env    # GEMINI_API_KEY を書く
 python -m src.main
 ```
 
@@ -163,10 +163,10 @@ ffmpeg が無い環境でも動くが、`【SE: 間】` の無音挿入はスキ
 
 ## つまずきやすい点
 
-- **DeepSeek がまれに文字化けする**: 日本語生成中に半角カナや全角ラテン文字が語中へ混入することがある
-  （「とにかｗ目立つ」「経剱消費」など）。実測で5章中1章に発生した。
-  `pipeline.garbled_chars()` が検知して章単位で自動的に書き直すが、
-  頻発するようなら `gemini-2.5-flash` に切り替えるのが確実。
+- **DeepSeek がまれに文字化けする**: OpenRouter経由の DeepSeek に切り替えた場合、日本語生成中に
+  半角カナや全角ラテン文字が語中へ混入することがある（「とにかｗ目立つ」「経剱消費」など）。
+  実測で5章中1章に発生した。`pipeline.garbled_chars()` が検知して章単位で自動的に書き直すが、
+  確実性を優先するなら既定の `gemini-2.5-flash` のまま使うのがよい。
 - **文字数が足りない**: 章の文字数が目標の75%未満なら自動で書き直しを1回かける。
   それでも足りない場合は `chars_per_chapter` を下げるか、上位モデルに切り替える。
 - **JSONのパースに失敗する**: モデルが不正なエスケープを出すことがあるため、
