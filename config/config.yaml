@@ -18,7 +18,7 @@ script:
 
 llm:
   provider: gemini            # gemini | openrouter
-  gemini_model: gemini-2.5-flash
+  gemini_model: gemini-3.6-flash
   openrouter_model: deepseek/deepseek-v4-pro
   temperature: 0.9
   max_output_tokens: 8192

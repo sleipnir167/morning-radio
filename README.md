@@ -112,7 +112,7 @@ model:             anthropic/claude-sonnet-4.5
 
 | provider | model の例 | 1回あたりの目安 |
 |---|---|---|
-| `gemini` | `gemini-2.5-flash`（既定） / `gemini-2.5-pro` | 無料枠 |
+| `gemini` | `gemini-3.6-flash`（既定） / `gemini-3.6-pro` | 無料枠 |
 | `openrouter` | `deepseek/deepseek-v4-pro` | 約5円 |
 | `openrouter` | `deepseek/deepseek-v3.2` | 約2円 |
 | `openrouter` | `anthropic/claude-sonnet-4.5` | 約20〜40円 |
@@ -166,7 +166,7 @@ ffmpeg が無い環境でも動くが、`【SE: 間】` の無音挿入はスキ
 - **DeepSeek がまれに文字化けする**: OpenRouter経由の DeepSeek に切り替えた場合、日本語生成中に
   半角カナや全角ラテン文字が語中へ混入することがある（「とにかｗ目立つ」「経剱消費」など）。
   実測で5章中1章に発生した。`pipeline.garbled_chars()` が検知して章単位で自動的に書き直すが、
-  確実性を優先するなら既定の `gemini-2.5-flash` のまま使うのがよい。
+  確実性を優先するなら既定の `gemini-3.6-flash` のまま使うのがよい。
 - **文字数が足りない**: 章の文字数が目標の75%未満なら自動で書き直しを1回かける。
   それでも足りない場合は `chars_per_chapter` を下げるか、上位モデルに切り替える。
 - **JSONのパースに失敗する**: モデルが不正なエスケープを出すことがあるため、
