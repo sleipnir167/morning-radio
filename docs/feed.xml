@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 30 Aug 2026 06:57:10 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 22:59:06 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-08-31 夏の終わりの風に聴く、ニュースの裏側に潜む仕組みの変容</title>
+      <description>デジタル・政治資金・経済安保から見る、今まさに変わりゆく国家のルール</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260831/radio-2026-08-31.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260831/radio-2026-08-31.mp3" length="5121453" type="audio/mpeg"/>
+      <pubDate>Sun, 30 Aug 2026 22:59:06 +0000</pubDate>
+      <itunes:duration>00:14:13</itunes:duration>
+    </item>
     <item>
       <title>2026-08-30 夏の終わりの霧雨に、今週のニュースの深層を聴く</title>
       <description>社会の仕組みの不全と人間のリアルな熱量の狭間で、私たちの明日を考える</description>
