@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 29 Aug 2026 14:59:46 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 06:57:10 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-08-30 夏の終わりの霧雨に、今週のニュースの深層を聴く</title>
+      <description>社会の仕組みの不全と人間のリアルな熱量の狭間で、私たちの明日を考える</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260830/radio-2026-08-30.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260830/radio-2026-08-30.mp3" length="5164797" type="audio/mpeg"/>
+      <pubDate>Sun, 30 Aug 2026 06:57:10 +0000</pubDate>
+      <itunes:duration>00:14:20</itunes:duration>
+    </item>
     <item>
       <title>2026-08-29 雨の朝に巡る、光とカタチとことばの魔法</title>
       <description>雨模様の街を歩きながら、日常の景色を一変させるアートと表現の深層を探る</description>
