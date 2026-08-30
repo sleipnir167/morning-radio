@@ -173,6 +173,9 @@ ffmpeg が無い環境でも動くが、`【SE: 間】` の無音挿入はスキ
   修復を試みたうえで `llm.retries` 回まで生成し直す。それでも落ちる場合は章数を減らす。
 - **Gemini のレート制限**: 無料枠は分あたりのリクエスト数に上限がある。
   章数を増やしすぎると429になるため、7章以上にするなら `llm.retries` を増やす。
+- **ニュースの取得に失敗する**: Google News RSS は無料のぶん、ときどき 503 を返す。
+  3秒・8秒・20秒と間隔を空けて再試行し、それでも総合トップが取れなければ
+  ジャンル別の検索結果だけで番組を作る。全滅した日はニュース抜きの回になる。
 - **Actions が push できない**: `Settings → Actions → General → Workflow permissions` を
   `Read and write permissions` にする。
 - **60日以上前の音声が消えている**: Releasesは残るが `docs/episodes.json` は

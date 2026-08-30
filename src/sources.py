@@ -1,11 +1,32 @@
 """天気（Open-Meteo）とニュース（Google News RSS）の取得。どちらもAPIキー不要。"""
 from __future__ import annotations
 
+import time
 import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
 import requests
+
+# Google News RSS も Open-Meteo も、無料で使わせてもらっている分ときどき 503 を返す。
+# 毎朝の自動実行が一度の瞬断で落ちないよう、間隔を空けて数回試す。
+_BACKOFF = (3, 8, 20)
+
+
+def _get(url: str, **kwargs) -> requests.Response:
+    last: Exception | None = None
+    for i, wait in enumerate((*_BACKOFF, None)):
+        try:
+            res = requests.get(url, timeout=60, **kwargs)
+            res.raise_for_status()
+            return res
+        except requests.RequestException as exc:
+            last = exc
+            if wait is None:
+                break
+            print(f"      取得に失敗（{exc.__class__.__name__}）。{wait}秒後に再試行します")
+            time.sleep(wait)
+    raise last  # type: ignore[misc]
 
 WMO = {
     0: "快晴", 1: "晴れ", 2: "薄曇り", 3: "曇り",
@@ -21,7 +42,7 @@ WMO = {
 
 
 def fetch_weather(loc: dict) -> dict:
-    res = requests.get(
+    res = _get(
         "https://api.open-meteo.com/v1/forecast",
         params={
             "latitude": loc["latitude"],
@@ -31,9 +52,7 @@ def fetch_weather(loc: dict) -> dict:
             "daily": "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise",
             "hourly": "temperature_2m,precipitation_probability,apparent_temperature",
         },
-        timeout=60,
     )
-    res.raise_for_status()
     data = res.json()
     daily, hourly = data["daily"], data["hourly"]
 
@@ -77,8 +96,7 @@ def weather_text(w: dict) -> str:
 
 
 def _rss(url: str, limit: int) -> list[dict]:
-    res = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (morning-radio)"}, timeout=60)
-    res.raise_for_status()
+    res = _get(url, headers={"User-Agent": "Mozilla/5.0 (morning-radio)"})
     root = ET.fromstring(res.content)
     items = []
     for item in list(root.iterfind(".//item"))[:limit]:
@@ -91,7 +109,12 @@ def _rss(url: str, limit: int) -> list[dict]:
 
 
 def fetch_news(queries: list[str], per_query: int = 8, headlines: int = 10) -> list[dict]:
-    articles = _rss("https://news.google.com/rss?hl=ja&gl=JP&ceid=JP:ja", headlines)
+    try:
+        articles = _rss("https://news.google.com/rss?hl=ja&gl=JP&ceid=JP:ja", headlines)
+    except Exception:  # 総合トップが落ちていてもジャンル別検索だけで番組は作れる
+        print("      ※ ニュースの総合トップを取得できませんでした")
+        articles = []
+
     for q in queries:
         encoded = urllib.parse.quote(f"{q} when:2d")
         try:
@@ -112,6 +135,8 @@ def fetch_news(queries: list[str], per_query: int = 8, headlines: int = 10) -> l
 
 
 def news_text(articles: list[dict]) -> str:
+    if not articles:
+        return "（今日は取得できませんでした。ジャンルとテーマだけで構成してください）"
     return "\n".join(
         f"- {a['title']}" + (f"（{a['source']}）" if a["source"] else "") for a in articles
     )
