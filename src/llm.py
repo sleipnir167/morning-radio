@@ -16,6 +16,25 @@ class LLMError(RuntimeError):
     pass
 
 
+class RateLimited(LLMError):
+    """無料枠の上限。待てば必ず通るので、失敗回数には数えない。"""
+
+    def __init__(self, message: str, retry_after: float):
+        super().__init__(message)
+        self.retry_after = retry_after
+
+
+_RETRY_AFTER = re.compile(r"retry in ([\d.]+)s|\"retryDelay\":\s*\"([\d.]+)s\"")
+
+
+def _retry_after(body: str) -> float:
+    """Gemini が返す待ち時間を読み取る。読めなければ1分待つ。"""
+    m = _RETRY_AFTER.search(body)
+    if m:
+        return float(m.group(1) or m.group(2)) + 2
+    return 60.0
+
+
 class LLM:
     def __init__(self, cfg: dict):
         self.provider = os.environ.get("LLM_PROVIDER") or cfg["provider"]
@@ -25,18 +44,28 @@ class LLM:
         self.temperature = float(cfg.get("temperature", 0.9))
         self.max_tokens = int(cfg.get("max_output_tokens", 8192))
         self.retries = int(cfg.get("retries", 3))
+        self.rate_limit_retries = int(cfg.get("rate_limit_retries", 6))
 
     def generate(self, system: str, user: str, json_mode: bool = False) -> str:
         last: Exception | None = None
-        for attempt in range(self.retries):
+        failures, waits = 0, 0
+        while failures < self.retries:
             try:
                 if self.provider == "gemini":
                     return self._gemini(system, user, json_mode)
                 return self._openrouter(system, user, json_mode)
+            except RateLimited as exc:
+                last = exc
+                if waits >= self.rate_limit_retries:
+                    break
+                waits += 1
+                print(f"      レート制限に当たりました。{exc.retry_after:.0f}秒待って再試行します")
+                time.sleep(exc.retry_after)
             except Exception as exc:  # noqa: BLE001
                 last = exc
-                if attempt < self.retries - 1:
-                    time.sleep(4 * (attempt + 1))
+                failures += 1
+                if failures < self.retries:
+                    time.sleep(4 * failures)
         raise LLMError(f"{self.provider}/{self.model} の呼び出しに失敗しました: {last}")
 
     def generate_json(self, system: str, user: str) -> dict:
@@ -70,6 +99,8 @@ class LLM:
             json=body,
             timeout=300,
         )
+        if res.status_code == 429:
+            raise RateLimited(f"Gemini 429: {res.text[:300]}", _retry_after(res.text))
         if res.status_code != 200:
             raise LLMError(f"Gemini {res.status_code}: {res.text[:500]}")
         data = res.json()
@@ -103,6 +134,9 @@ class LLM:
             json=body,
             timeout=300,
         )
+        if res.status_code == 429:
+            wait = float(res.headers.get("Retry-After") or 30) + 2
+            raise RateLimited(f"OpenRouter 429: {res.text[:300]}", wait)
         if res.status_code != 200:
             raise LLMError(f"OpenRouter {res.status_code}: {res.text[:500]}")
         data = res.json()

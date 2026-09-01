@@ -23,6 +23,7 @@ llm:
   temperature: 0.9
   max_output_tokens: 16384    # 1章1,100字＋思考トークンの余裕を見て多めに取る
   retries: 3
+  rate_limit_retries: 6       # 429は待てば通るので、失敗回数とは別に数える
 
 tts:
   voice: ja-JP-NanamiNeural   # ja-JP-KeitaNeural / ja-JP-MayuNeural / ja-JP-AoiNeural
