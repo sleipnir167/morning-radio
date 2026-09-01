@@ -89,8 +89,12 @@ Privateでもよい（月2,000分の無料枠内で十分収まる）。
 
 ### 毎朝の自動実行
 
-`.github/workflows/daily-radio.yml` の cron が JST 05:30 に起動する。
-時刻を変えるならUTCで書く（JST = UTC+9）。
+`.github/workflows/daily-radio.yml` の cron が JST 04:00 に起動する。
+5時の散歩に間に合わせるための時刻で、生成には10〜15分かかる。
+時刻を変えるならUTCで書く（JST = UTC+9。JST 04:00 = UTC 19:00）。
+
+> GitHub の cron は混雑時に5〜20分ほど遅れて起動することがある。
+> 05:00 出発なら 04:00 起動で十分な余裕がある。
 
 ### スマホから手動実行
 
@@ -100,10 +104,11 @@ GitHubモバイルアプリ、またはブラウザで
 
 ```
 genre:             海外の話題・異文化
-chapters:          6
-chars_per_chapter: 900
-provider:          openrouter
-model:             anthropic/claude-sonnet-4.5
+chapters:          8
+chars_per_chapter: 1100
+provider:          gemini
+model:             （空欄でよい）
+voice:             （空欄でよい）
 ```
 
 ### モデルの切り替え

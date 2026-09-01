@@ -2,7 +2,7 @@ name: 朝の散歩ラジオ
 
 on:
   schedule:
-    - cron: "30 20 * * *"   # UTC 20:30 = JST 05:30
+    - cron: "0 19 * * *"    # UTC 19:00 = JST 04:00（5時の散歩に間に合わせる）
   workflow_dispatch:
     inputs:
       genre:
@@ -12,12 +12,12 @@ on:
       chapters:
         description: 章数
         required: false
-        default: "5"
+        default: "8"
         type: string
       chars_per_chapter:
         description: 1章あたりの文字数
         required: false
-        default: "800"
+        default: "1100"
         type: string
       provider:
         description: LLMプロバイダ
