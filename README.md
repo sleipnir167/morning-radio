@@ -106,6 +106,7 @@ GitHubモバイルアプリ、またはブラウザで
 genre:             海外の話題・異文化
 chapters:          8
 chars_per_chapter: 1100
+profile:           light
 provider:          gemini
 model:             （空欄でよい）
 voice:             （空欄でよい）
@@ -113,14 +114,35 @@ voice:             （空欄でよい）
 
 ### モデルの切り替え
 
-`config/config.yaml` の `llm.provider` を変えるか、実行時に指定する。
+Gemini の無料枠は**モデルごとに日あたりの上限が独立している**。上限は
+[AI Studio のレート制限ページ](https://ai.dev/rate-limit)で確認できる。
+
+| モデル | RPD | 放送1回=10リクエストとして |
+|---|---|---|
+| `gemini-3.6-flash` | 20 | 2回 |
+| `gemini-3.5-flash` | 20 | 2回 |
+| `gemini-3.5-flash-lite` | 500 | 50回 |
+
+そこで、工程ごとにモデルを分けられるようにしてある（`llm.models`）。
+手動実行では `profile` で切り替える。
+
+| profile | 目次 | 本文 | 結合 | 1日に回せる回数 |
+|---|---|---|---|---|
+| （定時実行・`high`） | 3.6 Flash | 3.6 Flash | 3.6 Flash | 2回 |
+| `light` | 3.5 Flash | 3.5 Flash Lite | 3.5 Flash | 50回 |
+
+`light` は本文だけを枠の大きい Lite に逃がし、**構成の設計と結合は上位モデルに残す**。
+章の並びと問いの立て方、オープニング・エンディングの質は保たれるので、
+「もう1本聴きたい」ときの選択肢として実用になる。毎朝の1本は既定のまま最上位で作られる。
+
+`model` を直接入力した場合は、profile より優先して全工程がそのモデルになる。
 
 | provider | model の例 | 1回あたりの目安 |
 |---|---|---|
-| `gemini` | `gemini-3.6-flash`（既定） / `gemini-3.6-pro` | 無料枠 |
-| `openrouter` | `deepseek/deepseek-v4-pro` | 約5円 |
-| `openrouter` | `deepseek/deepseek-v3.2` | 約2円 |
-| `openrouter` | `anthropic/claude-sonnet-4.5` | 約20〜40円 |
+| `gemini` | `gemini-3.6-flash`（既定） | 無料枠 |
+| `openrouter` | `deepseek/deepseek-v4-pro` | 約10円（1万字） |
+| `openrouter` | `deepseek/deepseek-v3.2` | 約4円 |
+| `openrouter` | `anthropic/claude-sonnet-4.5` | 約40〜80円 |
 
 ### ローカル実行（Windows）
 

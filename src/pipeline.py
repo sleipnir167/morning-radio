@@ -64,7 +64,7 @@ def build_outline(llm: LLM, ctx: dict) -> dict:
 {ctx['history_text']}
 
 以上をもとに、今日の放送回の構成案をJSONで出力してください。"""
-    outline = llm.generate_json(system, user)
+    outline = llm.generate_json(system, user, role="outline")
     chapters = outline.get("chapters") or []
     if not chapters:
         raise RuntimeError("目次生成に失敗しました（chaptersが空）")
@@ -183,7 +183,7 @@ def assemble(llm: LLM, ctx: dict, outline: dict, chapters: list[str]) -> dict:
 
 オープニング、章間のつなぎ（{len(chapters) - 1}本）、エンディングをJSONで出力してください。"""
 
-    result = llm.generate_json(system, user)
+    result = llm.generate_json(system, user, role="assemble")
     result["opening"] = _clean(result.get("opening", ""))
     result["ending"] = _clean(result.get("ending", ""))
     result["bridges"] = [_clean(b) for b in result.get("bridges", [])]

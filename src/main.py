@@ -80,7 +80,9 @@ def main() -> int:
     }
 
     llm = LLM(cfg["llm"])
-    print(f"[2/7] 目次を作成中（{llm.provider} / {llm.model}）")
+    used = ", ".join(f"{role}={model}" for role, model in llm.role_models.items())
+    print(f"      使用モデル（{llm.provider}）: {used}")
+    print("[2/7] 目次を作成中")
     outline = build_outline(llm, ctx)
     print(f"      『{outline.get('episode_title')}』 全{len(outline['chapters'])}章")
     if outline.get("series"):

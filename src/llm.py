@@ -35,25 +35,42 @@ def _retry_after(body: str) -> float:
     return 60.0
 
 
+ROLES = ("outline", "chapter", "assemble")
+
+
 class LLM:
     def __init__(self, cfg: dict):
         self.provider = os.environ.get("LLM_PROVIDER") or cfg["provider"]
         self.model = os.environ.get("LLM_MODEL") or (
             cfg["gemini_model"] if self.provider == "gemini" else cfg["openrouter_model"]
         )
+        # モデル名を明示指定されたら、工程別の設定より優先して全工程に使う
+        if os.environ.get("LLM_MODEL"):
+            self.role_models = {role: self.model for role in ROLES}
+        else:
+            configured = cfg.get("models") or {}
+            self.role_models = {
+                role: os.environ.get(f"LLM_MODEL_{role.upper()}")
+                or configured.get(role)
+                or self.model
+                for role in ROLES
+            }
         self.temperature = float(cfg.get("temperature", 0.9))
         self.max_tokens = int(cfg.get("max_output_tokens", 8192))
         self.retries = int(cfg.get("retries", 3))
         self.rate_limit_retries = int(cfg.get("rate_limit_retries", 6))
 
-    def generate(self, system: str, user: str, json_mode: bool = False) -> str:
+    def generate(
+        self, system: str, user: str, json_mode: bool = False, role: str = "chapter"
+    ) -> str:
+        model = self.role_models.get(role, self.model)
         last: Exception | None = None
         failures, waits = 0, 0
         while failures < self.retries:
             try:
                 if self.provider == "gemini":
-                    return self._gemini(system, user, json_mode)
-                return self._openrouter(system, user, json_mode)
+                    return self._gemini(system, user, json_mode, model)
+                return self._openrouter(system, user, json_mode, model)
             except RateLimited as exc:
                 last = exc
                 if waits >= self.rate_limit_retries:
@@ -66,19 +83,19 @@ class LLM:
                 failures += 1
                 if failures < self.retries:
                     time.sleep(4 * failures)
-        raise LLMError(f"{self.provider}/{self.model} の呼び出しに失敗しました: {last}")
+        raise LLMError(f"{self.provider}/{model} の呼び出しに失敗しました: {last}")
 
-    def generate_json(self, system: str, user: str) -> dict:
+    def generate_json(self, system: str, user: str, role: str = "chapter") -> dict:
         last: Exception | None = None
         for _ in range(self.retries):
-            raw = self.generate(system, user, json_mode=True)
+            raw = self.generate(system, user, json_mode=True, role=role)
             try:
                 return _parse_json(raw)
             except Exception as exc:  # noqa: BLE001
                 last = exc
         raise LLMError(f"JSONを取得できませんでした: {last}")
 
-    def _gemini(self, system: str, user: str, json_mode: bool) -> str:
+    def _gemini(self, system: str, user: str, json_mode: bool, model: str) -> str:
         key = os.environ.get("GEMINI_API_KEY")
         if not key:
             raise LLMError("GEMINI_API_KEY が設定されていません")
@@ -94,7 +111,7 @@ class LLM:
             "generationConfig": gen_cfg,
         }
         res = requests.post(
-            GEMINI_ENDPOINT.format(model=self.model),
+            GEMINI_ENDPOINT.format(model=model),
             params={"key": key},
             json=body,
             timeout=300,
@@ -114,12 +131,12 @@ class LLM:
             raise LLMError(f"Gemini の応答が空です (finishReason={candidates[0].get('finishReason')})")
         return text
 
-    def _openrouter(self, system: str, user: str, json_mode: bool) -> str:
+    def _openrouter(self, system: str, user: str, json_mode: bool, model: str) -> str:
         key = os.environ.get("OPENROUTER_API_KEY")
         if not key:
             raise LLMError("OPENROUTER_API_KEY が設定されていません")
         body = {
-            "model": self.model,
+            "model": model,
             "messages": [
                 {"role": "system", "content": system},
                 {"role": "user", "content": user},

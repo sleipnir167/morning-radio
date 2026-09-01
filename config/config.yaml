@@ -20,6 +20,14 @@ llm:
   provider: gemini            # gemini | openrouter
   gemini_model: gemini-3.6-flash
   openrouter_model: deepseek/deepseek-v4-pro
+
+  # 工程ごとのモデル上書き。空なら上の既定モデルを使う。
+  # 無料枠は日あたりのリクエスト数がモデルごとに独立しているので、
+  # 1日に何度も作り直すなら本文だけ枠の大きいモデルに逃がす（下の light プロファイル）。
+  models:
+    outline: ""
+    chapter: ""
+    assemble: ""
   temperature: 0.9
   max_output_tokens: 16384    # 1章1,100字＋思考トークンの余裕を見て多めに取る
   retries: 3

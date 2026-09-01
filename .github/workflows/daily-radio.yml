@@ -19,6 +19,12 @@ on:
         required: false
         default: "1100"
         type: string
+      profile:
+        description: 品質プロファイル（high=最上位モデル・1日2回まで / light=枠の大きいモデル・1日50回）
+        required: false
+        default: light
+        type: choice
+        options: [high, light]
       provider:
         description: LLMプロバイダ
         required: false
@@ -71,6 +77,11 @@ jobs:
           LLM_PROVIDER: ${{ inputs.provider }}
           LLM_MODEL: ${{ inputs.model }}
           TTS_VOICE: ${{ inputs.voice }}
+          # light: 構成と結合だけ 3.5 Flash（1日20回）、本文は 3.5 Flash Lite（1日500回）に逃がす。
+          # 定時実行では inputs が空なので config.yaml の既定（3.6 Flash）が使われる。
+          LLM_MODEL_OUTLINE: ${{ inputs.profile == 'light' && 'gemini-3.5-flash' || '' }}
+          LLM_MODEL_CHAPTER: ${{ inputs.profile == 'light' && 'gemini-3.5-flash-lite' || '' }}
+          LLM_MODEL_ASSEMBLE: ${{ inputs.profile == 'light' && 'gemini-3.5-flash' || '' }}
         run: python -m src.main
 
       - name: リリースとして音声を公開
