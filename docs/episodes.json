@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-01",
+    "title": "見えない世界を解き明かす、9月の科学風鈴",
+    "summary": "ミクロの物質から広大な宇宙まで、世界の隠れた構造を知る朝の知的探求",
+    "genre": "科学・テクノロジー",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20260901/radio-2026-09-01.mp3",
+    "script_url": "scripts/2026-09-01.md",
+    "size": 5166237,
+    "duration": 861,
+    "published": "2026-09-01T00:01:35.787301+00:00"
+  },
+  {
     "date": "2026-08-31",
     "title": "夏の終わりの風に聴く、ニュースの裏側に潜む仕組みの変容",
     "summary": "デジタル・政治資金・経済安保から見る、今まさに変わりゆく国家のルール",
