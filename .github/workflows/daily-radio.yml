@@ -87,10 +87,26 @@ jobs:
                  "${{ steps.gen.outputs.script_path }}" --clobber
 
       - name: 履歴とフィードをコミット
+        env:
+          DATE: ${{ steps.gen.outputs.date }}
+          MESSAGE: "放送: ${{ steps.gen.outputs.date }} ${{ steps.gen.outputs.title }}"
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add history docs
-          git diff --staged --quiet || git commit -m "放送: ${{ steps.gen.outputs.date }} ${{ steps.gen.outputs.title }}"
-          git pull --rebase --autostash
-          git push
+
+          # docs/ と history/ は生成物なので、行単位のマージは意味を持たない。
+          # 押し戻されたらリモートの最新状態を取り直し、この回をその上へ載せ直す。
+          for attempt in 1 2 3; do
+            git add history docs
+            git diff --staged --quiet || git commit -m "$MESSAGE"
+            git push && exit 0
+
+            echo "push が押し戻されました。リモートの最新状態へ載せ直します（$attempt回目）"
+            git fetch origin
+            git reset --soft origin/main
+            git checkout origin/main -- history docs
+            python -m src.republish "$DATE"
+          done
+
+          echo "3回試しても push できませんでした" >&2
+          exit 1

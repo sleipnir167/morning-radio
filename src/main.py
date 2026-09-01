@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import os
-import shutil
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -10,7 +9,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 
-from . import history, publish
+from . import history, publish, republish
 from .llm import LLM
 from .pipeline import (
     WEEKDAY_JA,
@@ -134,25 +133,40 @@ def main() -> int:
 def _finish(cfg, today, outline, genre, total, script_path, audio_path, past) -> int:
     tag = f"ep-{today.replace('-', '')}"
 
+    meta = None
     if audio_path and cfg["publish"]["podcast"]["enabled"]:
+        meta = {
+            "date": today,
+            "title": outline.get("episode_title", today),
+            "summary": outline.get("theme", ""),
+            "genre": genre,
+            "audio_url": publish.release_url(tag, audio_path.name),
+            "script_url": f"scripts/{today}.md",
+            "size": audio_path.stat().st_size,
+            "duration": duration_seconds(audio_path),
+            "published": publish.now_iso(),
+        }
+
+    record = {
+        "date": today,
+        "script_path": str(script_path),
+        "meta": meta,
+        "history": {
+            "date": today,
+            "genre": genre,
+            "episode_title": outline.get("episode_title", ""),
+            "theme": outline.get("theme", ""),
+            "topics": outline.get("topics", []),
+            "chapter_titles": [c.get("title", "") for c in outline["chapters"]],
+            "series": outline.get("series"),
+            "total_chars": total,
+        },
+    }
+    # push が衝突したときに同じ内容をやり直せるよう、反映前に記録を残す
+    republish.save(today, record)
+
+    if meta:
         print("[6/7] Podcast RSS と閲覧ページを更新中")
-        scripts_dir = Path("docs/scripts")
-        scripts_dir.mkdir(parents=True, exist_ok=True)
-        shutil.copy(script_path, scripts_dir / f"{today}.md")
-        publish.record_episode(
-            cfg,
-            {
-                "date": today,
-                "title": outline.get("episode_title", today),
-                "summary": outline.get("theme", ""),
-                "genre": genre,
-                "audio_url": publish.release_url(tag, audio_path.name),
-                "script_url": f"scripts/{today}.md",
-                "size": audio_path.stat().st_size,
-                "duration": duration_seconds(audio_path),
-                "published": publish.now_iso(),
-            },
-        )
 
     if audio_path and cfg["publish"]["gdrive"]["enabled"] and cfg["publish"]["gdrive"].get("folder_id"):
         print("[6/7] Google Drive にアップロード中")
@@ -166,18 +180,7 @@ def _finish(cfg, today, outline, genre, total, script_path, audio_path, past) ->
             print(f"      ※ Driveアップロードに失敗: {exc}", file=sys.stderr)
 
     print("[7/7] 履歴を記録中")
-    history.append(
-        {
-            "date": today,
-            "genre": genre,
-            "episode_title": outline.get("episode_title", ""),
-            "theme": outline.get("theme", ""),
-            "topics": outline.get("topics", []),
-            "chapter_titles": [c.get("title", "") for c in outline["chapters"]],
-            "series": outline.get("series"),
-            "total_chars": total,
-        }
-    )
+    republish.apply(cfg, record)
 
     gh_out = os.environ.get("GITHUB_OUTPUT")
     if gh_out:

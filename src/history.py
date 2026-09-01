@@ -26,10 +26,27 @@ def load(lookback_days: int) -> list[dict]:
     return sorted(entries, key=lambda e: e["date"])
 
 
-def append(entry: dict) -> None:
+def upsert(entry: dict) -> None:
+    """同じ日付の行を置き換えて追記する。
+
+    同じ日に2回放送を作り直したときや、push衝突でやり直したときに
+    履歴が二重にならないよう、追記ではなく上書きにしている。
+    """
     HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with HISTORY_PATH.open("a", encoding="utf-8") as f:
-        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    kept = []
+    if HISTORY_PATH.exists():
+        for line in HISTORY_PATH.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                if json.loads(line).get("date") == entry["date"]:
+                    continue
+            except json.JSONDecodeError:
+                pass
+            kept.append(line)
+    kept.append(json.dumps(entry, ensure_ascii=False))
+    HISTORY_PATH.write_text("\n".join(kept) + "\n", encoding="utf-8")
 
 
 def to_prompt(entries: list[dict], max_topics: int) -> str:
