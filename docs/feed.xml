@@ -8,17 +8,17 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 01 Sep 2026 23:24:24 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 23:50:41 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
     <item>
-      <title>2026-09-02 足元に眠る「水の道」と「人の足跡」を探る朝の散歩</title>
-      <description>いつも歩く道の高低差やニュースの陰に隠れた「歴史と地理の構造」を解き明かす</description>
+      <title>2026-09-02 雲が隠す境界線と、足元から広がる地球の凸凹</title>
+      <description>空気や土地に引かれた「境界線」を巡り、地球の鼓動と人の歴史の結びつきを紐解く</description>
       <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260902/radio-2026-09-02.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260902/radio-2026-09-02.mp3" length="10260093" type="audio/mpeg"/>
-      <pubDate>Tue, 01 Sep 2026 23:00:00 +0000</pubDate>
-      <itunes:duration>00:28:29</itunes:duration>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260902/radio-2026-09-02.mp3" length="9010893" type="audio/mpeg"/>
+      <pubDate>Tue, 01 Sep 2026 23:50:41 +0000</pubDate>
+      <itunes:duration>00:25:01</itunes:duration>
     </item>
     <item>
       <title>2026-09-01 見えない世界を解き明かす、9月の科学風鈴</title>
