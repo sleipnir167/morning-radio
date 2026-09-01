@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 01 Sep 2026 00:01:35 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 22:48:36 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-02 足元に眠る古代の設計図——千年の道と都市の記憶を歩く</title>
+      <description>日常の風景の裏側に潜む古代の地理と歴史の痕跡を解き明かし、歩く景色を一変させる</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260902/radio-2026-09-02.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260902/radio-2026-09-02.mp3" length="10352397" type="audio/mpeg"/>
+      <pubDate>Tue, 01 Sep 2026 22:48:36 +0000</pubDate>
+      <itunes:duration>00:28:45</itunes:duration>
+    </item>
     <item>
       <title>2026-09-01 見えない世界を解き明かす、9月の科学風鈴</title>
       <description>ミクロの物質から広大な宇宙まで、世界の隠れた構造を知る朝の知的探求</description>
