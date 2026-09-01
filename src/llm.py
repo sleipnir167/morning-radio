@@ -100,7 +100,8 @@ class LLM:
             timeout=300,
         )
         if res.status_code == 429:
-            raise RateLimited(f"Gemini 429: {res.text[:300]}", _retry_after(res.text))
+            # どの枠を使い切ったのか（分あたりか日あたりか）が message 末尾に出るので長めに残す
+            raise RateLimited(f"Gemini 429: {res.text[:900]}", _retry_after(res.text))
         if res.status_code != 200:
             raise LLMError(f"Gemini {res.status_code}: {res.text[:500]}")
         data = res.json()
