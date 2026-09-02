@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 from .llm import LLM
-from .sources import news_text, weather_text
+from .sources import news_text, top_news_text, weather_text
 
 PROMPT_DIR = Path("prompts")
 WEEKDAY_JA = ["月", "火", "水", "木", "金", "土", "日"]
@@ -57,8 +57,11 @@ def build_outline(llm: LLM, ctx: dict) -> dict:
 # 今日の天気
 {weather_text(ctx['weather'])}
 
-# 最新のニュース見出し（直近2日）
-{news_text(ctx['news'])}
+# 今朝の総合トップニュース（第1章はこの中から選ぶこと）
+{top_news_text(ctx['news'])}
+
+# ジャンルに沿った見出し（第2章以降の素材）
+{news_text([a for a in ctx['news'] if not a.get('top')])}
 
 # 過去{ctx['lookback_days']}日間に扱ったトピック（重複禁止）
 {ctx['history_text']}
@@ -85,7 +88,8 @@ def write_chapter(llm: LLM, ctx: dict, outline: dict, index: int, previous_tail:
     )
 
     series_note = ""
-    if outline.get("series") and index == 0:
+    # 第1章はトップニュース枠なので、連載は既定で第2章に置く
+    if outline.get("series") and index == int(outline["series"].get("chapter", 2)) - 1:
         s = outline["series"]
         series_note = (
             f"\n# 連載情報\nこの回は「{s.get('topic_key')}」の第{s.get('part')}回です。"

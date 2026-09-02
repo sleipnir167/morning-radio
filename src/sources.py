@@ -111,6 +111,8 @@ def _rss(url: str, limit: int) -> list[dict]:
 def fetch_news(queries: list[str], per_query: int = 8, headlines: int = 10) -> list[dict]:
     try:
         articles = _rss("https://news.google.com/rss?hl=ja&gl=JP&ceid=JP:ja", headlines)
+        for a in articles:
+            a["top"] = True     # 第1章はここから選ばせるので、由来を残しておく
     except Exception:  # 総合トップが落ちていてもジャンル別検索だけで番組は作れる
         print("      ※ ニュースの総合トップを取得できませんでした")
         articles = []
@@ -132,6 +134,14 @@ def fetch_news(queries: list[str], per_query: int = 8, headlines: int = 10) -> l
         seen.add(a["title"])
         unique.append(a)
     return unique
+
+
+def top_news_text(articles: list[dict], limit: int = 10) -> str:
+    """総合トップの見出しだけを抜き出す（第1章の材料）。"""
+    tops = [a for a in articles if a.get("top")][:limit]
+    if not tops:
+        return "（今朝は取得できませんでした。第1章もジャンルに沿った話題にしてください）"
+    return news_text(tops)
 
 
 def news_text(articles: list[dict]) -> str:
