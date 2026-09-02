@@ -34,7 +34,7 @@ llm:
   rate_limit_retries: 6       # 429は待てば通るので、失敗回数とは別に数える
 
 tts:
-  voice: ja-JP-NanamiNeural   # ja-JP-KeitaNeural / ja-JP-MayuNeural / ja-JP-AoiNeural
+  voice: ja-JP-NanamiNeural   # Edge-TTSの日本語は ja-JP-NanamiNeural と ja-JP-KeitaNeural の2つだけ
   rate: +8%
   pitch: +0Hz
   volume: +0%

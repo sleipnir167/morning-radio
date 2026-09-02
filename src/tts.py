@@ -16,6 +16,21 @@ _MARK_RE = re.compile(r"【SE:\s*(間|転換)\s*】")
 _READING_RE = re.compile(r"([一-龥々]+)（([ぁ-んァ-ヴー]+)）")
 
 
+def ensure_voice(voice: str) -> None:
+    """使えない音声名なら、原稿を作る前に止める。
+
+    Edge-TTS が扱えるのは Azure の全音声ではなく、その一部だけ。
+    合成は最後の工程なので、ここで弾かないと10分と10リクエストを捨てることになる。
+    """
+    names = [v["ShortName"] for v in asyncio.run(edge_tts.list_voices())]
+    if voice in names:
+        return
+    same_lang = sorted(n for n in names if n.startswith(voice.split("-")[0] + "-"))
+    raise RuntimeError(
+        f"音声「{voice}」は Edge-TTS では使えません。使えるのは: {', '.join(same_lang) or '（該当なし）'}"
+    )
+
+
 def to_speech_text(script: str) -> str:
     """原稿を読み上げ用に正規化する（ルビ注記の重複読みを防ぐ）。"""
     text = _READING_RE.sub(r"\2", script)

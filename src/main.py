@@ -20,7 +20,7 @@ from .pipeline import (
     write_chapter,
 )
 from .sources import fetch_news, fetch_weather
-from .tts import duration_seconds, synthesize
+from .tts import duration_seconds, ensure_voice, synthesize
 
 CONFIG_PATH = Path("config/config.yaml")
 
@@ -60,6 +60,9 @@ def main() -> int:
 
     genre = os.environ.get("GENRE") or cfg["genres"][weekday]
     print(f"[1/7] {today}（{WEEKDAY_JA[weekday]}） ジャンル: {genre}")
+
+    if os.environ.get("SKIP_TTS") != "1":
+        ensure_voice(cfg["tts"]["voice"])
 
     weather = fetch_weather(cfg["location"])
     news = fetch_news(cfg["news_queries"].get(genre, [genre]))

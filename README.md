@@ -77,7 +77,8 @@ Privateでもよい（月2,000分の無料枠内で十分収まる）。
 - `location` … 自分の住んでいる場所の緯度経度（初期値は東京）
 - `genres` … 曜日ごとのジャンル（0=月曜〜6=日曜）
 - `script.chapters` / `chars_per_chapter` … 章数と1章あたりの文字数
-- `tts.voice` … `ja-JP-NanamiNeural`（女性）/ `ja-JP-KeitaNeural`（男性）など
+- `tts.voice` … `ja-JP-NanamiNeural`（女性）/ `ja-JP-KeitaNeural`（男性）。
+  Edge-TTS の日本語はこの2つだけで、Azure の他の声（`ja-JP-MayuNeural` など）は使えない
 
 ### 7. Pixel 6a で購読
 
