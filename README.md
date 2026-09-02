@@ -96,7 +96,20 @@ Privateでもよい（月2,000分の無料枠内で十分収まる）。
 > GitHub の cron は混雑時に5〜20分ほど遅れて起動することがある。
 > 05:00 出発なら 04:00 起動で十分な余裕がある。
 
-### スマホから手動実行
+### 管理画面（推奨）
+
+`https://<ユーザー名>.github.io/morning-radio/admin.html`
+
+プロンプトの編集、実行時刻の変更、章数・文字数・音声の調整、手動実行までを
+ブラウザから行える。スマホでも使える。
+
+初回だけ [Fine-grained トークン](https://github.com/settings/personal-access-tokens/new)が要る。
+Repository access はこのリポジトリだけ、Permissions は
+`Contents: Read and write` / `Actions: Read and write` / `Workflows: Read and write` の3つ。
+トークンはブラウザの localStorage に保存され、GitHub 以外へは送られない。
+ページ自体は公開されているが、トークンがなければ何も操作できない。
+
+### スマホから手動実行（管理画面を使わない場合）
 
 GitHubモバイルアプリ、またはブラウザで
 `Actions → 朝の散歩ラジオ → Run workflow`。

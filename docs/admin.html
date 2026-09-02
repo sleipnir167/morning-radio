@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>朝の散歩ラジオ — 管理</title>
+<style>
+:root{
+  --bg:#faf9f7; --card:#fff; --fg:#1c1b19; --muted:#6b6862; --line:#e2ded7;
+  --accent:#1f6feb; --accent-fg:#fff; --warn:#9a4a00; --warn-bg:#fff6e8; --ok:#0f7b3f;
+  --err:#b3261e; --err-bg:#fdeceb; --input:#fff;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#16181c; --card:#1e2126; --fg:#e8e6e3; --muted:#9a978f; --line:#31353c;
+    --accent:#5b9bff; --accent-fg:#0b1220; --warn:#ffc069; --warn-bg:#33280f; --ok:#54c98a;
+    --err:#ff8f87; --err-bg:#3a1e1c; --input:#15171b;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font-family:system-ui,-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;
+  line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 64px}
+h1{font-size:1.15rem;margin:8px 0 2px}
+h2{font-size:1rem;margin:0 0 4px}
+.sub{color:var(--muted);font-size:.82rem;margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px;margin:0 0 14px}
+.card>.desc{color:var(--muted);font-size:.82rem;margin:2px 0 14px}
+label{display:block;font-size:.82rem;color:var(--muted);margin:12px 0 4px}
+input,select,textarea{width:100%;background:var(--input);color:var(--fg);
+  border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:inherit;font-size:.92rem}
+textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;line-height:1.6;
+  min-height:340px;resize:vertical;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+button{background:var(--accent);color:var(--accent-fg);border:0;border-radius:8px;
+  padding:10px 18px;font:inherit;font-weight:600;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+button.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:500}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1 1 150px}
+.actions{display:flex;gap:10px;align-items:center;margin-top:16px;flex-wrap:wrap}
+.msg{font-size:.82rem;margin:0}
+.msg.ok{color:var(--ok)} .msg.err{color:var(--err)}
+nav{display:flex;gap:6px;overflow-x:auto;margin:0 0 14px;padding-bottom:2px}
+nav button{background:transparent;color:var(--muted);border:1px solid var(--line);
+  padding:7px 13px;font-size:.85rem;font-weight:500;white-space:nowrap}
+nav button[aria-current="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+section[hidden]{display:none}
+.note{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:10px 12px;
+  font-size:.8rem;margin:12px 0 0}
+.err-box{background:var(--err-bg);color:var(--err);border-radius:8px;padding:10px 12px;
+  font-size:.82rem;margin:12px 0 0;white-space:pre-wrap}
+.profiles{display:grid;gap:8px;margin-top:6px}
+.profiles label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);
+  border-radius:9px;padding:11px 12px;margin:0;color:var(--fg);font-size:.88rem;cursor:pointer}
+.profiles input{width:auto;flex:0 0 auto;margin-top:5px}
+.profiles b{font-weight:600}
+.profiles span{display:block;color:var(--muted);font-size:.78rem;line-height:1.5}
+ul.runs{list-style:none;padding:0;margin:12px 0 0;font-size:.85rem}
+ul.runs li{border-top:1px solid var(--line);padding:9px 0;display:flex;gap:9px;align-items:baseline}
+ul.runs li:first-child{border-top:0}
+.dot{flex:0 0 auto;font-size:.9rem}
+.when{color:var(--muted);font-size:.76rem;margin-left:auto;white-space:nowrap}
+code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:.82em}
+a{color:var(--accent)}
+.hint{color:var(--muted);font-size:.76rem;margin:5px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>朝の散歩ラジオ — 管理</h1>
+<p class="sub" id="repoline">設定・プロンプト・手動実行</p>
+
+<!-- ───────── 接続 ───────── -->
+<div class="card" id="authcard">
+  <h2>GitHub に接続</h2>
+  <p class="desc">この画面は保存も実行も GitHub API を直接呼びます。
+    トークンは<b>このブラウザの中だけ</b>に保存され、GitHub 以外へは送信されません。</p>
+
+  <label for="token">アクセストークン</label>
+  <input id="token" type="password" placeholder="github_pat_..." autocomplete="off" spellcheck="false">
+  <p class="hint">
+    <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">
+    Fine-grained トークンを作る</a>
+    → Repository access で <code>morning-radio</code> だけを選び、Permissions は
+    <code>Contents: Read and write</code> /
+    <code>Actions: Read and write</code> /
+    <code>Workflows: Read and write</code> の3つ。
+  </p>
+  <div class="actions">
+    <button id="connect">接続する</button>
+    <button class="ghost" id="forget" hidden>トークンを消す</button>
+    <p class="msg" id="authmsg"></p>
+  </div>
+</div>
+
+<div id="app" hidden>
+
+<nav>
+  <button data-tab="run" aria-current="true">今すぐ作る</button>
+  <button data-tab="schedule">実行時刻</button>
+  <button data-tab="program">番組の設定</button>
+  <button data-tab="prompts">プロンプト</button>
+  <button data-tab="raw">config.yaml</button>
+</nav>
+
+<!-- ───────── 手動実行 ───────── -->
+<section id="tab-run">
+  <div class="card">
+    <h2>今すぐ作る</h2>
+    <p class="desc">ここで指定した内容は今回かぎりです。空欄の項目は「番組の設定」の値が使われます。</p>
+
+    <label for="r-genre">ジャンル</label>
+    <select id="r-genre"><option value="">曜日ごとの既定（今日のジャンル）</option></select>
+
+    <div class="row">
+      <div>
+        <label for="r-chapters">章数</label>
+        <input id="r-chapters" type="number" min="1" max="20" placeholder="既定">
+      </div>
+      <div>
+        <label for="r-chars">1章あたりの文字数</label>
+        <input id="r-chars" type="number" min="300" max="3000" step="50" placeholder="既定">
+      </div>
+    </div>
+
+    <label>品質</label>
+    <div class="profiles">
+      <label><input type="radio" name="profile" value="standard" checked>
+        <span><b>standard</b> — Gemini 3.5 Flash
+        <span>本命。1万字がきちんと出る。1日2回まで</span></span></label>
+      <label><input type="radio" name="profile" value="high">
+        <span><b>high</b> — Gemini 3.6 Flash
+        <span>毎朝の自動実行と同じ。枠を朝と取り合うので日中は1回まで</span></span></label>
+      <label><input type="radio" name="profile" value="light">
+        <span><b>light</b> — 本文だけ 3.5 Flash Lite
+        <span>下見・お試し用。1日50回。中身の密度は落ちる</span></span></label>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="r-provider">プロバイダ</label>
+        <select id="r-provider">
+          <option value="gemini">gemini</option>
+          <option value="openrouter">openrouter（要 OPENROUTER_API_KEY）</option>
+        </select>
+      </div>
+      <div>
+        <label for="r-model">モデル名を直接指定</label>
+        <input id="r-model" placeholder="空欄なら品質プロファイルに従う" spellcheck="false">
+      </div>
+    </div>
+    <p class="hint">モデル名を入れると品質プロファイルより優先され、全工程がそのモデルになります。</p>
+
+    <label for="r-voice">音声</label>
+    <select id="r-voice">
+      <option value="">既定（番組の設定のまま）</option>
+      <option value="ja-JP-NanamiNeural">ja-JP-NanamiNeural（女性・標準）</option>
+      <option value="ja-JP-MayuNeural">ja-JP-MayuNeural（女性・やわらかい）</option>
+      <option value="ja-JP-AoiNeural">ja-JP-AoiNeural（女性・明るい）</option>
+      <option value="ja-JP-KeitaNeural">ja-JP-KeitaNeural（男性）</option>
+      <option value="ja-JP-DaichiNeural">ja-JP-DaichiNeural（男性・落ち着き）</option>
+    </select>
+
+    <div class="actions">
+      <button id="dispatch">この内容で作る</button>
+      <p class="msg" id="runmsg"></p>
+    </div>
+    <p class="hint">8章で10〜15分かかります。完成すると Podcast と
+      <a href="./" target="_blank" rel="noopener">一覧ページ</a>に並びます。</p>
+  </div>
+
+  <div class="card">
+    <h2>直近の実行</h2>
+    <p class="desc">30秒ごとに自動更新します。</p>
+    <ul class="runs" id="runs"><li>読み込み中…</li></ul>
+    <div class="actions"><button class="ghost" id="refresh">更新</button></div>
+  </div>
+</section>
+
+<!-- ───────── 実行時刻 ───────── -->
+<section id="tab-schedule" hidden>
+  <div class="card">
+    <h2>毎朝の実行時刻</h2>
+    <p class="desc">日本時間で指定します。生成に10〜15分かかるので、散歩に出る1時間前が目安です。</p>
+
+    <label for="s-time">起動時刻（JST）</label>
+    <input id="s-time" type="time" step="300">
+    <p class="hint" id="s-cron"></p>
+
+    <div class="note">GitHub の定時実行は混雑時に5〜20分ほど遅れて始まることがあります。
+      出発時刻ぎりぎりに設定しないでください。</div>
+
+    <div class="actions">
+      <button id="s-save">保存する</button>
+      <p class="msg" id="s-msg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 番組の設定 ───────── -->
+<section id="tab-program" hidden>
+  <div class="card">
+    <h2>尺と声</h2>
+    <p class="desc">毎朝の自動実行で使われる既定値です。</p>
+    <div class="row">
+      <div><label for="p-chapters">章数</label><input id="p-chapters" type="number" min="1" max="20"></div>
+      <div><label for="p-chars">1章あたりの文字数</label><input id="p-chars" type="number" min="300" max="3000" step="50"></div>
+    </div>
+    <p class="hint" id="p-estimate"></p>
+
+    <label for="p-voice">音声</label>
+    <select id="p-voice">
+      <option value="ja-JP-NanamiNeural">ja-JP-NanamiNeural（女性・標準）</option>
+      <option value="ja-JP-MayuNeural">ja-JP-MayuNeural（女性・やわらかい）</option>
+      <option value="ja-JP-AoiNeural">ja-JP-AoiNeural（女性・明るい）</option>
+      <option value="ja-JP-KeitaNeural">ja-JP-KeitaNeural（男性）</option>
+      <option value="ja-JP-DaichiNeural">ja-JP-DaichiNeural（男性・落ち着き）</option>
+    </select>
+
+    <div class="row">
+      <div><label for="p-rate">話す速さ</label><input id="p-rate" placeholder="+8%" spellcheck="false"></div>
+      <div><label for="p-pause">【SE: 間】の長さ（ミリ秒）</label><input id="p-pause" type="number" min="0" max="3000" step="50"></div>
+    </div>
+
+    <label for="p-model">自動実行で使うモデル</label>
+    <input id="p-model" spellcheck="false">
+    <p class="hint">毎朝の定時実行で全工程に使われます。手動実行の品質プロファイルとは別です。</p>
+
+    <div class="actions">
+      <button id="p-save">保存する</button>
+      <p class="msg" id="p-msg"></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>曜日ごとのジャンル</h2>
+    <p class="desc">その日のニュース検索の切り口にもなります。</p>
+    <div id="genres"></div>
+    <div class="note">ジャンル名を変えると <code>news_queries</code> の見出しと一致しなくなり、
+      ジャンル名そのものが検索語として使われます。細かく効かせたい場合は
+      「config.yaml」タブで <code>news_queries</code> にも同じ名前で検索語を足してください。</div>
+    <div class="actions">
+      <button id="g-save">保存する</button>
+      <p class="msg" id="g-msg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── プロンプト ───────── -->
+<section id="tab-prompts" hidden>
+  <div class="card">
+    <h2>プロンプト</h2>
+    <p class="desc" id="prompt-desc"></p>
+
+    <label for="pr-file">編集するファイル</label>
+    <select id="pr-file">
+      <option value="prompts/system_outline.md">① 目次を設計する（構成作家）</option>
+      <option value="prompts/system_chapter.md">② 各章の本文を書く（パーソナリティ）</option>
+      <option value="prompts/system_assemble.md">③ オープニング・つなぎ・エンディング（編集者）</option>
+    </select>
+
+    <label for="pr-text">内容</label>
+    <textarea id="pr-text" spellcheck="false"></textarea>
+
+    <div class="note" id="pr-vars"></div>
+
+    <div class="actions">
+      <button id="pr-save">保存する</button>
+      <button class="ghost" id="pr-reload">読み直す</button>
+      <p class="msg" id="pr-msg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── raw yaml ───────── -->
+<section id="tab-raw" hidden>
+  <div class="card">
+    <h2>config.yaml</h2>
+    <p class="desc">上のタブで扱っていない項目（地点の緯度経度、ニュース検索語、履歴の参照日数、
+      工程ごとのモデルなど）はここで直接編集します。</p>
+    <textarea id="raw-text" spellcheck="false"></textarea>
+    <div class="note">インデントが崩れると実行が止まります。保存前に見直してください。</div>
+    <div class="actions">
+      <button id="raw-save">保存する</button>
+      <button class="ghost" id="raw-reload">読み直す</button>
+      <p class="msg" id="raw-msg"></p>
+    </div>
+  </div>
+</section>
+
+</div><!-- /app -->
+</div><!-- /wrap -->
+
+<script>
+"use strict";
+
+const OWNER = location.hostname.split(".")[0] || "sleipnir167";
+const REPO  = location.pathname.split("/").filter(Boolean)[0] || "morning-radio";
+const BRANCH = "main";
+const WORKFLOW = "daily-radio.yml";
+const API = "https://api.github.com";
+const WORKFLOW_PATH = ".github/workflows/" + WORKFLOW;
+const CONFIG_PATH = "config/config.yaml";
+
+let token = "";
+const shas = {};      // path -> sha
+const cache = {};     // path -> text
+
+const $ = (id) => document.getElementById(id);
+const say = (el, text, cls) => { el.textContent = text; el.className = "msg" + (cls ? " " + cls : ""); };
+
+/* ---------- GitHub API ---------- */
+
+async function api(path, options = {}) {
+  const res = await fetch(API + path, {
+    ...options,
+    headers: {
+      "Authorization": "Bearer " + token,
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      ...(options.body ? {"Content-Type": "application/json"} : {}),
+      ...(options.headers || {}),
+    },
+  });
+  if (res.status === 204) return null;
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const detail = data.message || res.statusText;
+    throw new Error(`${res.status} ${detail}`);
+  }
+  return data;
+}
+
+// GitHub は base64 を返す。日本語があるので UTF-8 として復号する。
+function decode(b64) {
+  const bin = atob(b64.replace(/\n/g, ""));
+  const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+  return new TextDecoder("utf-8").decode(bytes);
+}
+function encode(text) {
+  const bytes = new TextEncoder().encode(text);
+  let bin = "";
+  for (const b of bytes) bin += String.fromCharCode(b);
+  return btoa(bin);
+}
+
+async function load(path) {
+  const data = await api(`/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`);
+  shas[path] = data.sha;
+  cache[path] = decode(data.content);
+  return cache[path];
+}
+
+async function save(path, text, message) {
+  // 直前に他から更新されている可能性があるので sha を取り直してから書く
+  const head = await api(`/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`);
+  const data = await api(`/repos/${OWNER}/${REPO}/contents/${path}`, {
+    method: "PUT",
+    body: JSON.stringify({ message, content: encode(text), sha: head.sha, branch: BRANCH }),
+  });
+  shas[path] = data.content.sha;
+  cache[path] = text;
+}
+
+/* ---------- YAML の一行書き換え ---------- */
+// 完全な YAML 編集はしない。「キーが1箇所しかない」ことを確かめてから、
+// その行の値だけを差し替える。曖昧なら例外にして raw 編集へ誘導する。
+function setScalar(text, key, value) {
+  const probe = new RegExp(`^[ \\t]*${key}:`, "gm");
+  const hits = text.match(probe) || [];
+  if (hits.length !== 1) {
+    throw new Error(`config.yaml の ${key} を特定できませんでした（${hits.length}箇所）。config.yaml タブで直接編集してください。`);
+  }
+  const line = new RegExp(`^([ \\t]*${key}:[ \\t]*)([^\\n#]*?)([ \\t]*(?:#.*)?)$`, "m");
+  return text.replace(line, (_m, head, _old, tail) => head + value + tail);
+}
+function getScalar(text, key) {
+  const m = text.match(new RegExp(`^[ \\t]*${key}:[ \\t]*([^\\n#]*?)[ \\t]*(?:#.*)?$`, "m"));
+  return m ? m[1].trim().replace(/^["']|["']$/g, "") : "";
+}
+function getGenres(text) {
+  const block = text.match(/^genres:\n((?:[ \t]+\d:[^\n]*\n)+)/m);
+  if (!block) return [];
+  return [...block[1].matchAll(/^[ \t]+(\d):[ \t]*(.+?)[ \t]*$/gm)]
+    .map((m) => ({ day: Number(m[1]), name: m[2] }));
+}
+function setGenres(text, names) {
+  return text.replace(/^genres:\n((?:[ \t]+\d:[^\n]*\n)+)/m, (_all, body) => {
+    let i = 0;
+    const replaced = body.replace(/^([ \t]+\d:[ \t]*)(.+?)([ \t]*)$/gm, (_l, head, _old, tail) =>
+      head + names[i++] + tail);
+    return "genres:\n" + replaced;
+  });
+}
+
+/* ---------- 接続 ---------- */
+
+async function connect(quiet) {
+  const msg = $("authmsg");
+  token = $("token").value.trim();
+  if (!token) { say(msg, "トークンを入力してください", "err"); return; }
+  say(msg, "確認中…");
+  try {
+    const me = await api("/user");
+    await Promise.all([load(CONFIG_PATH), load(WORKFLOW_PATH)]);
+    localStorage.setItem("mr_token", token);
+    say(msg, `${me.login} として接続しました`, "ok");
+    $("forget").hidden = false;
+    $("app").hidden = false;
+    $("repoline").textContent = `${OWNER}/${REPO}`;
+    fillFromConfig();
+    fillSchedule();
+    loadPrompt();
+    refreshRuns();
+  } catch (err) {
+    say(msg, "接続できません: " + err.message, "err");
+    if (!quiet) console.error(err);
+  }
+}
+
+$("connect").addEventListener("click", () => connect(false));
+$("token").addEventListener("keydown", (e) => { if (e.key === "Enter") connect(false); });
+$("forget").addEventListener("click", () => {
+  localStorage.removeItem("mr_token");
+  token = ""; $("token").value = ""; $("app").hidden = true; $("forget").hidden = true;
+  say($("authmsg"), "このブラウザからトークンを消しました");
+});
+
+/* ---------- タブ ---------- */
+
+document.querySelectorAll("nav button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("nav button").forEach((b) => b.setAttribute("aria-current", String(b === btn)));
+    document.querySelectorAll("section").forEach((s) => { s.hidden = s.id !== "tab-" + btn.dataset.tab; });
+    if (btn.dataset.tab === "raw") { $("raw-text").value = cache[CONFIG_PATH] || ""; }
+  });
+});
+
+/* ---------- 設定の反映 ---------- */
+
+function estimate() {
+  const ch = Number($("p-chapters").value) || 0;
+  const per = Number($("p-chars").value) || 0;
+  const total = ch * per + 1200;          // オープニング・つなぎ・エンディングぶん
+  const minutes = Math.round(total / 5.7 / 60);  // 実測 約5.7字/秒
+  $("p-estimate").textContent = ch && per
+    ? `おおよそ ${total.toLocaleString()}字・音声 ${minutes}分前後。1回の生成で ${ch + 2} リクエスト使います。`
+    : "";
+}
+
+function fillFromConfig() {
+  const y = cache[CONFIG_PATH];
+  $("p-chapters").value = getScalar(y, "chapters");
+  $("p-chars").value = getScalar(y, "chars_per_chapter");
+  $("p-voice").value = getScalar(y, "voice");
+  $("p-rate").value = getScalar(y, "rate");
+  $("p-pause").value = getScalar(y, "pause_ms");
+  $("p-model").value = getScalar(y, "gemini_model");
+  estimate();
+
+  const genres = getGenres(y);
+  const days = ["月", "火", "水", "木", "金", "土", "日"];
+  $("genres").innerHTML = genres.map((g) =>
+    `<label for="g${g.day}">${days[g.day]}曜日</label>
+     <input id="g${g.day}" value="${g.name.replace(/"/g, "&quot;")}">`).join("");
+
+  const sel = $("r-genre");
+  sel.length = 1;
+  for (const g of genres) sel.add(new Option(`${days[g.day]}: ${g.name}`, g.name));
+}
+
+$("p-chapters").addEventListener("input", estimate);
+$("p-chars").addEventListener("input", estimate);
+
+$("p-save").addEventListener("click", async () => {
+  const msg = $("p-msg");
+  say(msg, "保存中…");
+  try {
+    let y = cache[CONFIG_PATH];
+    y = setScalar(y, "chapters", $("p-chapters").value);
+    y = setScalar(y, "chars_per_chapter", $("p-chars").value);
+    y = setScalar(y, "voice", $("p-voice").value);
+    y = setScalar(y, "rate", $("p-rate").value);
+    y = setScalar(y, "pause_ms", $("p-pause").value);
+    y = setScalar(y, "gemini_model", $("p-model").value);
+    await save(CONFIG_PATH, y, "管理画面から番組の設定を変更");
+    say(msg, "保存しました。次の実行から反映されます", "ok");
+  } catch (err) { say(msg, err.message, "err"); }
+});
+
+$("g-save").addEventListener("click", async () => {
+  const msg = $("g-msg");
+  say(msg, "保存中…");
+  try {
+    const names = [...Array(7).keys()].map((d) => ($("g" + d) || {}).value).filter((v) => v != null);
+    const y = setGenres(cache[CONFIG_PATH], names);
+    await save(CONFIG_PATH, y, "管理画面から曜日ごとのジャンルを変更");
+    fillFromConfig();
+    say(msg, "保存しました", "ok");
+  } catch (err) { say(msg, err.message, "err"); }
+});
+
+/* ---------- 実行時刻 ---------- */
+
+function fillSchedule() {
+  const m = cache[WORKFLOW_PATH].match(/cron:\s*["']([^"']+)["']/);
+  if (!m) { say($("s-msg"), "cron 行が見つかりません", "err"); return; }
+  const [minute, hour] = m[1].split(/\s+/);
+  const jst = (Number(hour) + 9) % 24;
+  $("s-time").value = String(jst).padStart(2, "0") + ":" + String(Number(minute)).padStart(2, "0");
+  showCron();
+}
+function showCron() {
+  const [h, mi] = $("s-time").value.split(":").map(Number);
+  if (Number.isNaN(h)) return;
+  const utc = (h - 9 + 24) % 24;
+  $("s-cron").textContent = `UTC ${String(utc).padStart(2, "0")}:${String(mi).padStart(2, "0")} → cron "${mi} ${utc} * * *"`;
+}
+$("s-time").addEventListener("input", showCron);
+
+$("s-save").addEventListener("click", async () => {
+  const msg = $("s-msg");
+  const [h, mi] = $("s-time").value.split(":").map(Number);
+  if (Number.isNaN(h)) { say(msg, "時刻を入れてください", "err"); return; }
+  say(msg, "保存中…");
+  try {
+    const utc = (h - 9 + 24) % 24;
+    const jst = `${String(h).padStart(2, "0")}:${String(mi).padStart(2, "0")}`;
+    const text = cache[WORKFLOW_PATH].replace(
+      /^(\s*- cron:\s*)["'][^"']+["'].*$/m,
+      `$1"${mi} ${utc} * * *"    # UTC ${String(utc).padStart(2, "0")}:${String(mi).padStart(2, "0")} = JST ${jst}`);
+    await save(WORKFLOW_PATH, text, `管理画面から実行時刻を JST ${jst} に変更`);
+    say(msg, `JST ${jst} に変更しました`, "ok");
+  } catch (err) {
+    const hint = /workflow/i.test(err.message)
+      ? "（トークンに Workflows: Read and write の権限が要ります）" : "";
+    say(msg, err.message + hint, "err");
+  }
+});
+
+/* ---------- プロンプト ---------- */
+
+const PROMPT_INFO = {
+  "prompts/system_outline.md": {
+    desc: "①の工程。本文は書かず、章の並び・問いの立て方・重複回避だけを設計してJSONで返させます。ここが番組の骨格になります。",
+    vars: "使える置換変数: {{program_title}} / {{personality}} / {{genre}} / {{chapters}} / {{chars_per_chapter}}。出力するJSONの形（chapters配列やseriesフィールド）を変えると、後続の処理が読めなくなります。",
+  },
+  "prompts/system_chapter.md": {
+    desc: "②の工程。1章ぶんの本文だけを書かせます。章の数だけ呼ばれるので、聴いた印象をいちばん左右します。",
+    vars: "使える置換変数: {{program_title}} / {{personality}} / {{chapter_no}} / {{target_chars}}。【SE: 間】【SE: 転換】（ひらがな読み）以外の記法を許すと、そのまま読み上げられます。",
+  },
+  "prompts/system_assemble.md": {
+    desc: "③の工程。各章はそのままに、オープニング・章間のつなぎ・エンディング（人に話せるポイント3選）を書かせます。",
+    vars: "使える置換変数: {{program_title}} / {{personality}}。出力JSONの opening / bridges / ending / talking_points というキー名は変えないでください。",
+  },
+};
+
+async function loadPrompt() {
+  const path = $("pr-file").value;
+  const info = PROMPT_INFO[path];
+  $("prompt-desc").textContent = info.desc;
+  $("pr-vars").textContent = info.vars;
+  say($("pr-msg"), "読み込み中…");
+  try {
+    $("pr-text").value = await load(path);
+    say($("pr-msg"), "");
+  } catch (err) { say($("pr-msg"), err.message, "err"); }
+}
+$("pr-file").addEventListener("change", loadPrompt);
+$("pr-reload").addEventListener("click", loadPrompt);
+
+$("pr-save").addEventListener("click", async () => {
+  const msg = $("pr-msg");
+  const path = $("pr-file").value;
+  say(msg, "保存中…");
+  try {
+    await save(path, $("pr-text").value, `管理画面から ${path.split("/").pop()} を編集`);
+    say(msg, "保存しました。次の実行から反映されます", "ok");
+  } catch (err) { say(msg, err.message, "err"); }
+});
+
+/* ---------- raw config.yaml ---------- */
+
+$("raw-reload").addEventListener("click", async () => {
+  say($("raw-msg"), "読み込み中…");
+  try { $("raw-text").value = await load(CONFIG_PATH); say($("raw-msg"), ""); }
+  catch (err) { say($("raw-msg"), err.message, "err"); }
+});
+$("raw-save").addEventListener("click", async () => {
+  const msg = $("raw-msg");
+  say(msg, "保存中…");
+  try {
+    await save(CONFIG_PATH, $("raw-text").value, "管理画面から config.yaml を編集");
+    fillFromConfig();
+    say(msg, "保存しました", "ok");
+  } catch (err) { say(msg, err.message, "err"); }
+});
+
+/* ---------- 手動実行 ---------- */
+
+$("dispatch").addEventListener("click", async () => {
+  const msg = $("runmsg");
+  const btn = $("dispatch");
+  btn.disabled = true;
+  say(msg, "実行を依頼中…");
+  try {
+    const inputs = {
+      genre: $("r-genre").value,
+      chapters: $("r-chapters").value,
+      chars_per_chapter: $("r-chars").value,
+      profile: document.querySelector("input[name=profile]:checked").value,
+      provider: $("r-provider").value,
+      model: $("r-model").value.trim(),
+      voice: $("r-voice").value,
+    };
+    for (const k of Object.keys(inputs)) if (inputs[k] === "") delete inputs[k];
+    await api(`/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/dispatches`, {
+      method: "POST",
+      body: JSON.stringify({ ref: BRANCH, inputs }),
+    });
+    say(msg, "開始しました。10〜15分ほどかかります", "ok");
+    setTimeout(refreshRuns, 4000);
+  } catch (err) { say(msg, err.message, "err"); }
+  finally { btn.disabled = false; }
+});
+
+/* ---------- 実行状況 ---------- */
+
+const MARK = { success: "✅", failure: "❌", cancelled: "⏹", in_progress: "⏳", queued: "⏳", pending: "⏳" };
+
+function ago(iso) {
+  const sec = Math.floor((Date.now() - new Date(iso)) / 1000);
+  if (sec < 60) return "たった今";
+  if (sec < 3600) return `${Math.floor(sec / 60)}分前`;
+  if (sec < 86400) return `${Math.floor(sec / 3600)}時間前`;
+  return `${Math.floor(sec / 86400)}日前`;
+}
+
+async function refreshRuns() {
+  if (!token) return;
+  const ul = $("runs");
+  try {
+    const data = await api(`/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=6`);
+    const runs = data.workflow_runs || [];
+    if (!runs.length) { ul.innerHTML = "<li>まだ実行がありません</li>"; return; }
+    ul.innerHTML = runs.map((r) => {
+      const state = r.status === "completed" ? r.conclusion : r.status;
+      const label = r.event === "schedule" ? "定時実行" : "手動実行";
+      return `<li><span class="dot">${MARK[state] || "•"}</span>
+        <a href="${r.html_url}" target="_blank" rel="noopener">${label}</a>
+        <span class="when">${ago(r.created_at)}</span></li>`;
+    }).join("");
+  } catch (err) {
+    ul.innerHTML = `<li>読み込めません: ${err.message}</li>`;
+  }
+}
+$("refresh").addEventListener("click", refreshRuns);
+setInterval(refreshRuns, 30000);
+
+/* ---------- 起動 ---------- */
+
+const saved = localStorage.getItem("mr_token");
+if (saved) { $("token").value = saved; connect(true); }
+</script>
+</body>
+</html>

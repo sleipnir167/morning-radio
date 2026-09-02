@@ -101,7 +101,8 @@ audio{{width:100%;margin:8px 0}} a{{color:#06c}}
 </style></head><body>
 <h1>{cfg['program']['title']}</h1>
 <p>{cfg['program'].get('subtitle', '')}</p>
-<p><a class="feed" href="{base}/feed.xml">Podcast RSS を購読</a></p>
+<p><a class="feed" href="{base}/feed.xml">Podcast RSS を購読</a>
+   <a href="{base}/admin.html">設定・手動実行</a></p>
 <ul>
 {items}
 </ul>
