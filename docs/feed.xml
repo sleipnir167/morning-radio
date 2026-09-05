@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 04 Sep 2026 19:10:24 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 18:30:23 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-06 雨の朝に紐解く、今週のニュースが教える暮らしと社会の新しいルール</title>
+      <description>今週の話題を数字や現象の奥にある『仕組みと人の思い』から解きほぐす</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260906/radio-2026-09-06.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260906/radio-2026-09-06.mp3" length="10783965" type="audio/mpeg"/>
+      <pubDate>Sat, 05 Sep 2026 18:30:23 +0000</pubDate>
+      <itunes:duration>00:29:57</itunes:duration>
+    </item>
     <item>
       <title>2026-09-05 雨の音とキャンバス——表現の芽吹く朝に耳を澄ませて</title>
       <description>目に見えない感覚や変化にカタチを与え、人から人へ手渡していく表現の仕組みを紐解く</description>
