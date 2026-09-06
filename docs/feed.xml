@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 18:30:23 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2026 18:31:55 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-07 雨音と歩く政治の深層——ショート動画から地図の解像度まで</title>
+      <description>短尺動画の時代に、ニュースの裏に潜む制度や構造の真実を読み解く</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260907/radio-2026-09-07.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260907/radio-2026-09-07.mp3" length="11155629" type="audio/mpeg"/>
+      <pubDate>Sun, 06 Sep 2026 18:31:55 +0000</pubDate>
+      <itunes:duration>00:30:59</itunes:duration>
+    </item>
     <item>
       <title>2026-09-06 雨の朝に紐解く、今週のニュースが教える暮らしと社会の新しいルール</title>
       <description>今週の話題を数字や現象の奥にある『仕組みと人の思い』から解きほぐす</description>
