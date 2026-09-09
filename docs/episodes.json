@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-10",
+    "title": "雨音に眠りをかさねて、からだの未来をひらく朝",
+    "summary": "最先端の研究と日常の習慣がつながる、新しい健康の地図を歩く",
+    "genre": "健康・からだと睡眠",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20260910/radio-2026-09-10.mp3",
+    "script_url": "scripts/2026-09-10.md",
+    "size": 10589565,
+    "duration": 1764,
+    "published": "2026-09-09T19:27:41.977200+00:00"
+  },
+  {
     "date": "2026-09-09",
     "title": "アスファルトの一歩下を掘り起こす、大地と記憶の地層散歩",
     "summary": "私たちが歩く現代の街の下に眠る、地理と歴史の隠された仕組みを読み解く",
