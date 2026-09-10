@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 09 Sep 2026 19:27:41 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 19:16:44 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-11 雨のしずくと世界の鼓動——文化と経済が描く、新しい境界線</title>
+      <description>伝統と保護のあいだで揺れる世界の価値観を知り、自分の足元を照らし直す30分</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260911/radio-2026-09-11.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260911/radio-2026-09-11.mp3" length="10901037" type="audio/mpeg"/>
+      <pubDate>Thu, 10 Sep 2026 19:16:44 +0000</pubDate>
+      <itunes:duration>00:30:16</itunes:duration>
+    </item>
     <item>
       <title>2026-09-10 雨音に眠りをかさねて、からだの未来をひらく朝</title>
       <description>最先端の研究と日常の習慣がつながる、新しい健康の地図を歩く</description>
