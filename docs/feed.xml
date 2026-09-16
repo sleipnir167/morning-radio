@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 15 Sep 2026 19:54:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2026 19:47:36 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-17 霧雨の朝に耳をすます、眠りの深さとからだの声</title>
+      <description>脳と体の休養メカニズムを知り、テクノロジーと知恵で自らのコンディションを整える</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260917/radio-2026-09-17.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260917/radio-2026-09-17.mp3" length="11129421" type="audio/mpeg"/>
+      <pubDate>Wed, 16 Sep 2026 19:47:36 +0000</pubDate>
+      <itunes:duration>00:30:54</itunes:duration>
+    </item>
     <item>
       <title>2026-09-16 雨の街角で紐解く古の記憶——ミイラの包帯から断崖の都市まで</title>
       <description>大地と遺物に刻まれた古の知恵を紐解き、現代の都市と暮らしの原点を探る旅</description>
