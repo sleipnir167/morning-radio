@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 19 Sep 2026 07:52:40 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 18:53:35 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-20 雨がにじむ境界線、伝統のハイブリッドと山の迷い熊</title>
+      <description>今週の出来事から紐解く、異なる世界が交差し境界線が溶け合う時代の変化</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260920/radio-2026-09-20.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260920/radio-2026-09-20.mp3" length="10820253" type="audio/mpeg"/>
+      <pubDate>Sat, 19 Sep 2026 18:53:35 +0000</pubDate>
+      <itunes:duration>00:30:03</itunes:duration>
+    </item>
     <item>
       <title>2026-09-19 雨の音に重なる言葉と響き——芸術が解き明かす世界の表情</title>
       <description>目に見えない思いや季節のゆらぎを言葉や音に託す芸術の仕組みを紐解く</description>
