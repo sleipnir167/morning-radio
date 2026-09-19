@@ -32,6 +32,13 @@ llm:
   max_output_tokens: 16384    # 1章1,100字＋思考トークンの余裕を見て多めに取る
   retries: 3
   rate_limit_retries: 6       # 429は待てば通るので、失敗回数とは別に数える
+  busy_retries: 2             # 503は待つより別モデルに移ったほうが早いので、粘りは短く
+
+  # 503（モデル混雑）や枠切れのときに、上から順に切り替えていく。
+  # 朝の放送が丸ごと落ちるより、少し格の落ちるモデルでも出来上がるほうがよい。
+  fallback_models:
+    - gemini-3.5-flash
+    - gemini-3.5-flash-lite
 
 tts:
   voice: ja-JP-NanamiNeural   # Edge-TTSの日本語は ja-JP-NanamiNeural と ja-JP-KeitaNeural の2つだけ

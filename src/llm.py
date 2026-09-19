@@ -24,6 +24,10 @@ class RateLimited(LLMError):
         self.retry_after = retry_after
 
 
+class ServiceBusy(LLMError):
+    """モデル側の混雑（503など）。そのモデルの問題なので、別のモデルなら通ることが多い。"""
+
+
 _RETRY_AFTER = re.compile(r"retry in ([\d.]+)s|\"retryDelay\":\s*\"([\d.]+)s\"")
 
 
@@ -59,25 +63,62 @@ class LLM:
         self.max_tokens = int(cfg.get("max_output_tokens", 8192))
         self.retries = int(cfg.get("retries", 3))
         self.rate_limit_retries = int(cfg.get("rate_limit_retries", 6))
+        self.busy_retries = int(cfg.get("busy_retries", 2))
+        self.fallbacks = list(cfg.get("fallback_models") or [])
+        # 一度モデルを落としたら、その回は最後までそのモデルで通す。
+        # 章ごとに違うモデルが混ざると、語り口が途中で変わってしまうため。
+        self._downgraded: str | None = None
+
+    def _chain(self, role: str) -> list[str]:
+        """このリクエストで試すモデルを、優先順に並べる。"""
+        chain = [self._downgraded or self.role_models.get(role, self.model)]
+        for model in self.fallbacks:
+            if model not in chain:
+                chain.append(model)
+        return chain
 
     def generate(
         self, system: str, user: str, json_mode: bool = False, role: str = "chapter"
     ) -> str:
-        model = self.role_models.get(role, self.model)
+        chain = self._chain(role)
         last: Exception | None = None
-        failures, waits = 0, 0
+        for i, model in enumerate(chain):
+            try:
+                return self._call(system, user, json_mode, model)
+            except (RateLimited, ServiceBusy) as exc:
+                # そのモデルが混んでいる／枠切れなだけなので、別のモデルなら通る見込みがある
+                last = exc
+                if i + 1 >= len(chain):
+                    break
+                self._downgraded = chain[i + 1]
+                print(f"      {model} が使えません。{chain[i + 1]} に切り替えて続けます")
+            except LLMError as exc:
+                last = exc  # 認証や不正なモデル名は、切り替えても直らない
+                break
+        raise LLMError(f"{self.provider} の呼び出しに失敗しました: {last}")
+
+    def _call(self, system: str, user: str, json_mode: bool, model: str) -> str:
+        """1つのモデルで粘る。粘りきれない一時的な障害は、そのまま上へ投げる。"""
+        last: Exception | None = None
+        failures, waits, busy = 0, 0, 0
         while failures < self.retries:
             try:
                 if self.provider == "gemini":
                     return self._gemini(system, user, json_mode, model)
                 return self._openrouter(system, user, json_mode, model)
             except RateLimited as exc:
-                last = exc
                 if waits >= self.rate_limit_retries:
-                    break
+                    raise
                 waits += 1
                 print(f"      レート制限に当たりました。{exc.retry_after:.0f}秒待って再試行します")
                 time.sleep(exc.retry_after)
+            except ServiceBusy:
+                if busy >= self.busy_retries:
+                    raise
+                busy += 1
+                wait = 30 * 2 ** (busy - 1)
+                print(f"      {model} が混雑しています。{wait}秒待って再試行します")
+                time.sleep(wait)
             except Exception as exc:  # noqa: BLE001
                 last = exc
                 failures += 1
@@ -119,6 +160,8 @@ class LLM:
         if res.status_code == 429:
             # どの枠を使い切ったのか（分あたりか日あたりか）が message 末尾に出るので長めに残す
             raise RateLimited(f"Gemini 429: {res.text[:900]}", _retry_after(res.text))
+        if res.status_code >= 500:
+            raise ServiceBusy(f"Gemini {res.status_code}: {res.text[:500]}")
         if res.status_code != 200:
             raise LLMError(f"Gemini {res.status_code}: {res.text[:500]}")
         data = res.json()
@@ -155,6 +198,8 @@ class LLM:
         if res.status_code == 429:
             wait = float(res.headers.get("Retry-After") or 30) + 2
             raise RateLimited(f"OpenRouter 429: {res.text[:300]}", wait)
+        if res.status_code >= 500:
+            raise ServiceBusy(f"OpenRouter {res.status_code}: {res.text[:500]}")
         if res.status_code != 200:
             raise LLMError(f"OpenRouter {res.status_code}: {res.text[:500]}")
         data = res.json()

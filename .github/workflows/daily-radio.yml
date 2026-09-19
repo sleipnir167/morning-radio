@@ -85,7 +85,13 @@ jobs:
           LLM_MODEL_OUTLINE: ${{ (inputs.profile == 'standard' || inputs.profile == 'light') && 'gemini-3.5-flash' || '' }}
           LLM_MODEL_CHAPTER: ${{ inputs.profile == 'light' && 'gemini-3.5-flash-lite' || (inputs.profile == 'standard' && 'gemini-3.5-flash' || '') }}
           LLM_MODEL_ASSEMBLE: ${{ (inputs.profile == 'standard' || inputs.profile == 'light') && 'gemini-3.5-flash' || '' }}
-        run: python -m src.main
+        # モデル側の一時的な不調は src/llm.py が別モデルへ逃がすが、
+        # Gemini 全体が数分落ちるとそれも効かない。朝1本のためにもう一度だけ試す。
+        run: |
+          python -m src.main && exit 0
+          echo "1回目が失敗しました。5分おいて、もう一度だけ試します" >&2
+          sleep 300
+          python -m src.main
 
       - name: リリースとして音声を公開
         env:
