@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 20 Sep 2026 19:05:09 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 20:41:13 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-22 霧雨の朝に潜む科学のゆらぎ——温泉の秘密から宇宙の深淵まで</title>
+      <description>温泉の効能からAIスパコン、宇宙望遠鏡まで「見えないもの」を解き明かす科学の旅</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260922/radio-2026-09-22.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260922/radio-2026-09-22.mp3" length="10938045" type="audio/mpeg"/>
+      <pubDate>Mon, 21 Sep 2026 20:41:13 +0000</pubDate>
+      <itunes:duration>00:30:22</itunes:duration>
+    </item>
     <item>
       <title>2026-09-21 雨音が映すこの国の姿、変わりゆく世界と変わらない構造</title>
       <description>現状維持の引力に抗う——超高齢社会と硬直する政治・労働市場を動かす変革の視点</description>
