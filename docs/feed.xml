@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 21 Sep 2026 20:41:13 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 20:06:07 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-23 国境と都の始まりを巡る、秋分の朝の境界線ラジオ</title>
+      <description>人類が引いてきた「境界線」の歴史と、自然が溶かすグラデーションを味わう</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260923/radio-2026-09-23.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260923/radio-2026-09-23.mp3" length="10117101" type="audio/mpeg"/>
+      <pubDate>Tue, 22 Sep 2026 20:06:07 +0000</pubDate>
+      <itunes:duration>00:28:06</itunes:duration>
+    </item>
     <item>
       <title>2026-09-22 霧雨の朝に潜む科学のゆらぎ——温泉の秘密から宇宙の深淵まで</title>
       <description>温泉の効能からAIスパコン、宇宙望遠鏡まで「見えないもの」を解き明かす科学の旅</description>
