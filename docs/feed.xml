@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 22 Sep 2026 20:06:07 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 19:49:48 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-24 霧雨の朝に整える、食べる仕組みと眠りの科学</title>
+      <description>幼少期の栄養から最新の睡眠科学まで、健康とからだの構造を解き明かす</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260924/radio-2026-09-24.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260924/radio-2026-09-24.mp3" length="9225885" type="audio/mpeg"/>
+      <pubDate>Wed, 23 Sep 2026 19:49:48 +0000</pubDate>
+      <itunes:duration>00:25:37</itunes:duration>
+    </item>
     <item>
       <title>2026-09-23 国境と都の始まりを巡る、秋分の朝の境界線ラジオ</title>
       <description>人類が引いてきた「境界線」の歴史と、自然が溶かすグラデーションを味わう</description>
