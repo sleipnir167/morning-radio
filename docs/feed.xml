@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 24 Sep 2026 20:14:51 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 20:11:04 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-26 雨音が描くモダニズムと、ことばの生まれる場所</title>
+      <description>時代と境界を越えて共鳴する、美術・文学・音楽のポリフォニー</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260926/radio-2026-09-26.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260926/radio-2026-09-26.mp3" length="8862861" type="audio/mpeg"/>
+      <pubDate>Fri, 25 Sep 2026 20:11:04 +0000</pubDate>
+      <itunes:duration>00:24:37</itunes:duration>
+    </item>
     <item>
       <title>2026-09-25 雨の朝、国境を越える文化の風に吹かれて——個人主義とつながりの新時代</title>
       <description>世界を動かす「個」の台頭と、異文化が織りなす共感と摩擦の構造を紐解く</description>
