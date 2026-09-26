@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 25 Sep 2026 20:11:04 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 19:23:21 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-27 秋雨の朝、経済の数字の裏側と新しいモビリティの行方</title>
+      <description>今週の経済トピックと自動車業界の動向を総集編として深く読み解く</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260927/radio-2026-09-27.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260927/radio-2026-09-27.mp3" length="9764877" type="audio/mpeg"/>
+      <pubDate>Sat, 26 Sep 2026 19:23:21 +0000</pubDate>
+      <itunes:duration>00:27:07</itunes:duration>
+    </item>
     <item>
       <title>2026-09-26 雨音が描くモダニズムと、ことばの生まれる場所</title>
       <description>時代と境界を越えて共鳴する、美術・文学・音楽のポリフォニー</description>
