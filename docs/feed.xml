@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 27 Sep 2026 19:54:19 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 22:22:53 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-09-29 雨の朝に響く星のエンジン、目に見えない技術が動かす社会の歯車</title>
+      <description>最先端の宇宙開発から私たちの足元のAI・データ社会まで、見えない基盤を支える技術の仕組みと構造を解き明かす</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260929/radio-2026-09-29.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260929/radio-2026-09-29.mp3" length="9398685" type="audio/mpeg"/>
+      <pubDate>Mon, 28 Sep 2026 22:22:53 +0000</pubDate>
+      <itunes:duration>00:26:06</itunes:duration>
+    </item>
     <item>
       <title>2026-09-28 雨の朝、支持率の数字の先に見える「この国の輪郭」</title>
       <description>外圧と内政の交差点で、私たちが「足元の自立」を取り戻すための選択</description>
