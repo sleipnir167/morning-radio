@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 30 Sep 2026 21:20:16 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 21:12:12 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-02 国境を越える移動と異文化の風景</title>
+      <description>世界中で大移動と変化が起きる今、異文化との向き合い方を考える</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261002/radio-2026-10-02.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261002/radio-2026-10-02.mp3" length="8115645" type="audio/mpeg"/>
+      <pubDate>Thu, 01 Oct 2026 21:12:12 +0000</pubDate>
+      <itunes:duration>00:22:32</itunes:duration>
+    </item>
     <item>
       <title>2026-10-01 秋曇の朝に紐解く、骨格筋の代謝と眠りの新事実</title>
       <description>健康と睡眠の本質に迫り、からだのメカニズムをアップデートする</description>
