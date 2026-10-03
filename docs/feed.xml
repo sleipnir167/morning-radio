@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 02 Oct 2026 21:01:29 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 19:29:38 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-04 冷たい秋曇りの朝に、私の言葉とからだの温度を確かめる散歩道</title>
+      <description>デジタルと効率の時代に、私たちが手触りのある身体感覚と対話を取り戻すための深掘り</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261004/radio-2026-10-04.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261004/radio-2026-10-04.mp3" length="11293437" type="audio/mpeg"/>
+      <pubDate>Sat, 03 Oct 2026 19:29:38 +0000</pubDate>
+      <itunes:duration>00:31:22</itunes:duration>
+    </item>
     <item>
       <title>2026-10-03 73歳で筆をとった絵筆のように、秋の朝に自分だけの言葉を探して</title>
       <description>表現の技術ではなく「衝動」と「対話」から生まれる、言葉とアートの力</description>
