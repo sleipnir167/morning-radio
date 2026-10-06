@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 05 Oct 2026 23:03:15 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 21:10:28 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-07 時を掘る朝。足元の土と古文書に刻まれた人間模様</title>
+      <description>地球の表面と地下に眠る歴史の痕跡を手がかりに、人間の営みと発見の構造を解き明かす</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261007/radio-2026-10-07.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261007/radio-2026-10-07.mp3" length="9319917" type="audio/mpeg"/>
+      <pubDate>Tue, 06 Oct 2026 21:10:28 +0000</pubDate>
+      <itunes:duration>00:25:53</itunes:duration>
+    </item>
     <item>
       <title>2026-10-06 光で脳を操り、量子で人を導く。現実世界を「書き換える」科学の歩幅</title>
       <description>物理世界を情報でハックし、最適化するテクノロジーの最前線</description>
