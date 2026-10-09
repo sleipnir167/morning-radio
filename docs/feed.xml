@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 08 Oct 2026 21:33:35 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 21:17:09 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-10 耳と指先でなぞる秋の光、境界線を越えて響き合う表現たち</title>
+      <description>言葉の枠や感覚の壁を越えて、世界を新しく捉え直す表現の可能性</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261010/radio-2026-10-10.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261010/radio-2026-10-10.mp3" length="11184429" type="audio/mpeg"/>
+      <pubDate>Fri, 09 Oct 2026 21:17:09 +0000</pubDate>
+      <itunes:duration>00:31:04</itunes:duration>
+    </item>
     <item>
       <title>2026-10-09 海を渡る言葉と手仕事、世界が編み直す日本の音と風土</title>
       <description>国境を越えた言葉や音楽、伝統が、異文化と出会って新たな意味を獲得する物語</description>
