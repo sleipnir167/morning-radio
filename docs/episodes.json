@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-14",
+    "title": "消えた伝説と土の中の記憶、時を旅する秋の散歩道",
+    "summary": "失われた古代のロマンと、私たちが足元の歴史に魅了される理由",
+    "genre": "歴史・地理の雑学",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261014/radio-2026-10-14.mp3",
+    "script_url": "scripts/2026-10-14.md",
+    "size": 8854221,
+    "duration": 1475,
+    "published": "2026-10-13T21:26:50.143632+00:00"
+  },
+  {
     "date": "2026-10-12",
     "title": "秋晴れの朝に読み解く政治の力学、言葉の罠と社会の選択",
     "summary": "政治の言葉や制度がいかに世論を動かし、私たちの現実と優先順位形作っているかを解く",
