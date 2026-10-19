@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 18 Oct 2026 18:52:31 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 21:24:24 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-20 霧雨の朝に開く、かたちと知能のルーツを探る科学の旅</title>
+      <description>最先端科学が解き明かす「見えない仕組み」と「はじまりのかたち」</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261020/radio-2026-10-20.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261020/radio-2026-10-20.mp3" length="10408269" type="audio/mpeg"/>
+      <pubDate>Mon, 19 Oct 2026 21:24:24 +0000</pubDate>
+      <itunes:duration>00:28:54</itunes:duration>
+    </item>
     <item>
       <title>2026-10-19 言葉と数が動かす政治、そのカラクリを歩く</title>
       <description>政治の「数」「言葉」「制度」の裏側を紐解き、日常との接点を見つめ直す</description>
