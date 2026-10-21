@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 20 Oct 2026 20:13:39 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 20:29:23 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-22 睡眠負債をリセットする朝、からだと自律神経の声を聴く散歩道</title>
+      <description>自律神経と睡眠の仕組みを理解し、日々の選択で心身のパフォーマンスを取り戻す</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261022/radio-2026-10-22.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261022/radio-2026-10-22.mp3" length="10659837" type="audio/mpeg"/>
+      <pubDate>Wed, 21 Oct 2026 20:29:23 +0000</pubDate>
+      <itunes:duration>00:29:36</itunes:duration>
+    </item>
     <item>
       <title>2026-10-21 足音の下に眠るタイムカプセル、土と海が語る人類の物語</title>
       <description>時間の風化を免れた土や海の痕跡から、教科書には載らない人類の生々しい営みを紐解く</description>
