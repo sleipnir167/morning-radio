@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 23 Oct 2026 20:47:43 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 18:59:16 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-25 数字と企業と暮らしの交差点、今週の経済総集編</title>
+      <description>今週の経済ニュースと企業動向から読み解く、私たちの暮らしの現在地</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261025/radio-2026-10-25.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261025/radio-2026-10-25.mp3" length="9485373" type="audio/mpeg"/>
+      <pubDate>Sat, 24 Oct 2026 18:59:16 +0000</pubDate>
+      <itunes:duration>00:26:20</itunes:duration>
+    </item>
     <item>
       <title>2026-10-24 雨音とページをめくる音。秋の散歩道で出会う言葉とアート</title>
       <description>静かな秋雨の朝、言葉とアートが切り拓く日常の余白と自分の声を聴く</description>

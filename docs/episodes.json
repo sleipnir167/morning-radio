@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-25",
+    "title": "数字と企業と暮らしの交差点、今週の経済総集編",
+    "summary": "今週の経済ニュースと企業動向から読み解く、私たちの暮らしの現在地",
+    "genre": "今週の総集編と深掘り",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261025/radio-2026-10-25.mp3",
+    "script_url": "scripts/2026-10-25.md",
+    "size": 9485373,
+    "duration": 1580,
+    "published": "2026-10-24T18:59:16.981717+00:00"
+  },
+  {
     "date": "2026-10-24",
     "title": "雨音とページをめくる音。秋の散歩道で出会う言葉とアート",
     "summary": "静かな秋雨の朝、言葉とアートが切り拓く日常の余白と自分の声を聴く",
