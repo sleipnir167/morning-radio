@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-26",
+    "title": "雨の月曜日、強い言葉と生活実感のあいだを歩く政治学",
+    "summary": "政策のカラクリと「強い言葉」の裏側を見通し、生活者としての判断力を養う",
+    "genre": "政治・時事ニュース解説",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261026/radio-2026-10-26.mp3",
+    "script_url": "scripts/2026-10-26.md",
+    "size": 10989741,
+    "duration": 1831,
+    "published": "2026-10-25T19:21:09.428288+00:00"
+  },
+  {
     "date": "2026-10-25",
     "title": "数字と企業と暮らしの交差点、今週の経済総集編",
     "summary": "今週の経済ニュースと企業動向から読み解く、私たちの暮らしの現在地",
