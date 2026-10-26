@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-27",
+    "title": "霧雨の朝に耳を澄ます、AIの感情と木で創る宇宙の未来",
+    "summary": "先端技術が拓く可能性と倫理の境界線を、人間の実感と足音からたどる旅",
+    "genre": "科学・テクノロジー",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261027/radio-2026-10-27.mp3",
+    "script_url": "scripts/2026-10-27.md",
+    "size": 10253325,
+    "duration": 1708,
+    "published": "2026-10-26T21:19:55.917063+00:00"
+  },
+  {
     "date": "2026-10-26",
     "title": "雨の月曜日、強い言葉と生活実感のあいだを歩く政治学",
     "summary": "政策のカラクリと「強い言葉」の裏側を見通し、生活者としての判断力を養う",
