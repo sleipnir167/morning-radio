@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-28",
+    "title": "秋晴れの道を踏みしめて聴く、境界と都市が刻んだ歴史の地層",
+    "summary": "人間はいかにして土地に意味を与え、境界を引き、暮らしの場を守ってきたのか",
+    "genre": "歴史・地理の雑学",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261028/radio-2026-10-28.mp3",
+    "script_url": "scripts/2026-10-28.md",
+    "size": 10092909,
+    "duration": 1682,
+    "published": "2026-10-27T20:58:15.626868+00:00"
+  },
+  {
     "date": "2026-10-27",
     "title": "霧雨の朝に耳を澄ます、AIの感情と木で創る宇宙の未来",
     "summary": "先端技術が拓く可能性と倫理の境界線を、人間の実感と足音からたどる旅",
