@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 27 Oct 2026 20:58:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 21:19:17 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-29 冷たい秋風と眠りの科学、自分のからだの声を聴く朝の散歩道</title>
+      <description>急激な寒暖差の中で、睡眠と栄養の最新科学から自分のからだを守る術を知る</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261029/radio-2026-10-29.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261029/radio-2026-10-29.mp3" length="10743213" type="audio/mpeg"/>
+      <pubDate>Wed, 28 Oct 2026 21:19:17 +0000</pubDate>
+      <itunes:duration>00:29:50</itunes:duration>
+    </item>
     <item>
       <title>2026-10-28 秋晴れの道を踏みしめて聴く、境界と都市が刻んだ歴史の地層</title>
       <description>人間はいかにして土地に意味を与え、境界を引き、暮らしの場を守ってきたのか</description>
