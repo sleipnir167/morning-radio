@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 28 Oct 2026 21:19:17 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 21:27:08 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-30 曇り空の朝に届く、世界を揺らす問いと海を越えるカルチャー</title>
+      <description>身近な常識が外の世界の視線や仕組みと出会うとき、当たり前の景色はどう変わるか</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261030/radio-2026-10-30.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261030/radio-2026-10-30.mp3" length="9784749" type="audio/mpeg"/>
+      <pubDate>Thu, 29 Oct 2026 21:27:07 +0000</pubDate>
+      <itunes:duration>00:27:10</itunes:duration>
+    </item>
     <item>
       <title>2026-10-29 冷たい秋風と眠りの科学、自分のからだの声を聴く朝の散歩道</title>
       <description>急激な寒暖差の中で、睡眠と栄養の最新科学から自分のからだを守る術を知る</description>
