@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 29 Oct 2026 21:27:08 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 21:03:35 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-10-31 霧雨の朝にめくる言葉のページ、表現の枠組みをひらく散歩道</title>
+      <description>当たり前の枠組みを解きほぐし、自分の感性で世界を再発見する</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261031/radio-2026-10-31.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261031/radio-2026-10-31.mp3" length="10229709" type="audio/mpeg"/>
+      <pubDate>Fri, 30 Oct 2026 21:03:35 +0000</pubDate>
+      <itunes:duration>00:28:24</itunes:duration>
+    </item>
     <item>
       <title>2026-10-30 曇り空の朝に届く、世界を揺らす問いと海を越えるカルチャー</title>
       <description>身近な常識が外の世界の視線や仕組みと出会うとき、当たり前の景色はどう変わるか</description>
