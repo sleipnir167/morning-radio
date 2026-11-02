@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-03",
+    "title": "科学技術が織りなす新時代、AIと宇宙のフロンティアを歩く",
+    "summary": "最先端のAIと宇宙開発の仕組みに迫り、未来の構造を読み解く朝",
+    "genre": "科学・テクノロジー",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261103/radio-2026-11-03.mp3",
+    "script_url": "scripts/2026-11-03.md",
+    "size": 8454620,
+    "duration": 1409,
+    "published": "2026-11-02T23:45:18.562063+00:00"
+  },
+  {
     "date": "2026-11-02",
     "title": "雨上がりの舗装路と政治の境界線、国家の役割を問い直す散歩道",
     "summary": "防災・産業政策・格差・司法の視点から「国家がどこまで関与すべきか」の境界線を紐解く",
@@ -647,16 +658,5 @@
     "size": 5166237,
     "duration": 861,
     "published": "2026-09-01T00:01:35.787301+00:00"
-  },
-  {
-    "date": "2026-08-31",
-    "title": "夏の終わりの風に聴く、ニュースの裏側に潜む仕組みの変容",
-    "summary": "デジタル・政治資金・経済安保から見る、今まさに変わりゆく国家のルール",
-    "genre": "政治・時事ニュース解説",
-    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20260831/radio-2026-08-31.mp3",
-    "script_url": "scripts/2026-08-31.md",
-    "size": 5121453,
-    "duration": 853,
-    "published": "2026-08-30T22:59:06.024612+00:00"
   }
 ]

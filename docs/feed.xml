@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 01 Nov 2026 20:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 23:45:18 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-03 科学技術が織りなす新時代、AIと宇宙のフロンティアを歩く</title>
+      <description>最先端のAIと宇宙開発の仕組みに迫り、未来の構造を読み解く朝</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261103/radio-2026-11-03.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261103/radio-2026-11-03.mp3" length="8454620" type="audio/mpeg"/>
+      <pubDate>Mon, 02 Nov 2026 23:45:18 +0000</pubDate>
+      <itunes:duration>00:23:29</itunes:duration>
+    </item>
     <item>
       <title>2026-11-02 雨上がりの舗装路と政治の境界線、国家の役割を問い直す散歩道</title>
       <description>防災・産業政策・格差・司法の視点から「国家がどこまで関与すべきか」の境界線を紐解く</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260901/radio-2026-09-01.mp3" length="5166237" type="audio/mpeg"/>
       <pubDate>Tue, 01 Sep 2026 00:01:35 +0000</pubDate>
       <itunes:duration>00:14:21</itunes:duration>
-    </item>
-    <item>
-      <title>2026-08-31 夏の終わりの風に聴く、ニュースの裏側に潜む仕組みの変容</title>
-      <description>デジタル・政治資金・経済安保から見る、今まさに変わりゆく国家のルール</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260831/radio-2026-08-31.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260831/radio-2026-08-31.mp3" length="5121453" type="audio/mpeg"/>
-      <pubDate>Sun, 30 Aug 2026 22:59:06 +0000</pubDate>
-      <itunes:duration>00:14:13</itunes:duration>
     </item>
   </channel>
 </rss>
