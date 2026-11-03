@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 02 Nov 2026 23:45:18 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 22:02:12 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-04 しっとりと雨渡る朝にたどる、水と土が語る歴史の地層</title>
+      <description>交通・遺物・地形の謎を解き明かし、足元の土に眠る人間の知恵を感じて歩く</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261104/radio-2026-11-04.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261104/radio-2026-11-04.mp3" length="10570844" type="audio/mpeg"/>
+      <pubDate>Tue, 03 Nov 2026 22:02:12 +0000</pubDate>
+      <itunes:duration>00:29:21</itunes:duration>
+    </item>
     <item>
       <title>2026-11-03 科学技術が織りなす新時代、AIと宇宙のフロンティアを歩く</title>
       <description>最先端のAIと宇宙開発の仕組みに迫り、未来の構造を読み解く朝</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260902/radio-2026-09-02.mp3" length="11029341" type="audio/mpeg"/>
       <pubDate>Wed, 02 Sep 2026 00:14:18 +0000</pubDate>
       <itunes:duration>00:30:38</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-01 見えない世界を解き明かす、9月の科学風鈴</title>
-      <description>ミクロの物質から広大な宇宙まで、世界の隠れた構造を知る朝の知的探求</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260901/radio-2026-09-01.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260901/radio-2026-09-01.mp3" length="5166237" type="audio/mpeg"/>
-      <pubDate>Tue, 01 Sep 2026 00:01:35 +0000</pubDate>
-      <itunes:duration>00:14:21</itunes:duration>
     </item>
   </channel>
 </rss>
