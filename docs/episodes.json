@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-05",
+    "title": "雨の足音とからだの声、睡眠・神経・歯が伝える健康の地層",
+    "summary": "口や睡眠、自律神経の小さなサインから、からだ全体のメカニズムを紐解く",
+    "genre": "健康・からだと睡眠",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261105/radio-2026-11-05.mp3",
+    "script_url": "scripts/2026-11-05.md",
+    "size": 10180892,
+    "duration": 1696,
+    "published": "2026-11-04T22:13:00.693442+00:00"
+  },
+  {
     "date": "2026-11-04",
     "title": "しっとりと雨渡る朝にたどる、水と土が語る歴史の地層",
     "summary": "交通・遺物・地形の謎を解き明かし、足元の土に眠る人間の知恵を感じて歩く",
@@ -647,16 +658,5 @@
     "size": 10813197,
     "duration": 1802,
     "published": "2026-09-02T21:20:09.361438+00:00"
-  },
-  {
-    "date": "2026-09-02",
-    "title": "薄曇りの朝に掘り起こす、大地と水底に眠る記憶の地層",
-    "summary": "足元の地形や遥かな水底に刻まれた、人類と地球の「見えない時間」をたどる旅",
-    "genre": "歴史・地理の雑学",
-    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20260902/radio-2026-09-02.mp3",
-    "script_url": "scripts/2026-09-02.md",
-    "size": 11029341,
-    "duration": 1838,
-    "published": "2026-09-02T00:14:18.543901+00:00"
   }
 ]
