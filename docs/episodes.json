@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-07",
+    "title": "地球の記憶から個人の手記まで、言葉と表現が刻む世界の地層",
+    "summary": "名付けること、描くこと、語り継ぐこと――人間が世界に意味を与える表現の力をたどる",
+    "genre": "カルチャー・アート・ことば",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261107/radio-2026-11-07.mp3",
+    "script_url": "scripts/2026-11-07.md",
+    "size": 11377100,
+    "duration": 1896,
+    "published": "2026-11-06T21:45:52.354491+00:00"
+  },
+  {
     "date": "2026-11-06",
     "title": "世界の熱狂と静寂のあいだを歩く秋の朝",
     "summary": "異国の文化と社会構造から「当たり前」をほぐし、自分の世界をひろげる",
@@ -647,16 +658,5 @@
     "size": 10606845,
     "duration": 1767,
     "published": "2026-09-04T19:10:24.928187+00:00"
-  },
-  {
-    "date": "2026-09-04",
-    "title": "雨の朝に耳を澄ます、世界を揺らす「異文化の仕掛け」",
-    "summary": "国境を越えるカルチャーの熱狂から欧州の自立思想まで、異文化の視点で日常を捉え直す",
-    "genre": "海外の話題・異文化",
-    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20260904/radio-2026-09-04.mp3",
-    "script_url": "scripts/2026-09-04.md",
-    "size": 10392717,
-    "duration": 1732,
-    "published": "2026-09-03T19:31:16.971114+00:00"
   }
 ]
