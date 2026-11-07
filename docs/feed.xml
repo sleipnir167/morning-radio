@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 06 Nov 2026 21:45:52 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 20:25:33 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-08 薄曇りの街を歩きながら、情報の波から自分らしさを掘り起こす朝</title>
+      <description>膨大な情報が流れる時代に、自分自身の視点と選択肢を取り戻す今週の深掘り</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261108/radio-2026-11-08.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261108/radio-2026-11-08.mp3" length="10621820" type="audio/mpeg"/>
+      <pubDate>Sat, 07 Nov 2026 20:25:33 +0000</pubDate>
+      <itunes:duration>00:29:30</itunes:duration>
+    </item>
     <item>
       <title>2026-11-07 地球の記憶から個人の手記まで、言葉と表現が刻む世界の地層</title>
       <description>名付けること、描くこと、語り継ぐこと――人間が世界に意味を与える表現の力をたどる</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260906/radio-2026-09-06.mp3" length="10783965" type="audio/mpeg"/>
       <pubDate>Sat, 05 Sep 2026 18:30:23 +0000</pubDate>
       <itunes:duration>00:29:57</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-05 雨の音とキャンバス——表現の芽吹く朝に耳を澄ませて</title>
-      <description>目に見えない感覚や変化にカタチを与え、人から人へ手渡していく表現の仕組みを紐解く</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260905/radio-2026-09-05.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260905/radio-2026-09-05.mp3" length="10606845" type="audio/mpeg"/>
-      <pubDate>Fri, 04 Sep 2026 19:10:24 +0000</pubDate>
-      <itunes:duration>00:29:27</itunes:duration>
     </item>
   </channel>
 </rss>
