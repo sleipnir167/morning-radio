@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 07 Nov 2026 20:25:33 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 20:44:44 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-09 冷たい雨の朝に読み解く、世界情勢の地殻変動と私たちの暮らし</title>
+      <description>米中間選挙後の動揺と東アジアの緊張から、国家の選択と個人の足元を見つめ直す</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261109/radio-2026-11-09.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261109/radio-2026-11-09.mp3" length="10771148" type="audio/mpeg"/>
+      <pubDate>Sun, 08 Nov 2026 20:44:44 +0000</pubDate>
+      <itunes:duration>00:29:55</itunes:duration>
+    </item>
     <item>
       <title>2026-11-08 薄曇りの街を歩きながら、情報の波から自分らしさを掘り起こす朝</title>
       <description>膨大な情報が流れる時代に、自分自身の視点と選択肢を取り戻す今週の深掘り</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260907/radio-2026-09-07.mp3" length="11155629" type="audio/mpeg"/>
       <pubDate>Sun, 06 Sep 2026 18:31:55 +0000</pubDate>
       <itunes:duration>00:30:59</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-06 雨の朝に紐解く、今週のニュースが教える暮らしと社会の新しいルール</title>
-      <description>今週の話題を数字や現象の奥にある『仕組みと人の思い』から解きほぐす</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260906/radio-2026-09-06.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260906/radio-2026-09-06.mp3" length="10783965" type="audio/mpeg"/>
-      <pubDate>Sat, 05 Sep 2026 18:30:23 +0000</pubDate>
-      <itunes:duration>00:29:57</itunes:duration>
     </item>
   </channel>
 </rss>
