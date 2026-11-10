@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 08 Nov 2026 20:44:44 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:26:22 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-10 雨の朝に開く宇宙とAIの図鑑、先端技術が変える世界の地平</title>
+      <description>宇宙インフラと自律AIの最前線から、技術が解き明かす人間と世界の新たな関係を探る</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261110/radio-2026-11-10.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261110/radio-2026-11-10.mp3" length="10275788" type="audio/mpeg"/>
+      <pubDate>Tue, 10 Nov 2026 00:26:22 +0000</pubDate>
+      <itunes:duration>00:28:32</itunes:duration>
+    </item>
     <item>
       <title>2026-11-09 冷たい雨の朝に読み解く、世界情勢の地殻変動と私たちの暮らし</title>
       <description>米中間選挙後の動揺と東アジアの緊張から、国家の選択と個人の足元を見つめ直す</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260908/radio-2026-09-08.mp3" length="10158717" type="audio/mpeg"/>
       <pubDate>Mon, 07 Sep 2026 20:08:08 +0000</pubDate>
       <itunes:duration>00:28:13</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-07 雨音と歩く政治の深層——ショート動画から地図の解像度まで</title>
-      <description>短尺動画の時代に、ニュースの裏に潜む制度や構造の真実を読み解く</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260907/radio-2026-09-07.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260907/radio-2026-09-07.mp3" length="11155629" type="audio/mpeg"/>
-      <pubDate>Sun, 06 Sep 2026 18:31:55 +0000</pubDate>
-      <itunes:duration>00:30:59</itunes:duration>
     </item>
   </channel>
 </rss>
