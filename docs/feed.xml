@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 13 Nov 2026 22:23:57 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 20:56:43 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-15 雨の音と一週間の棚卸し、日常の裏側にある仕組みをひもとく朝</title>
+      <description>一週間の出来事や仕組みの裏側を読み解き、日々の選択と視点をアップデートする</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261115/radio-2026-11-15.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261115/radio-2026-11-15.mp3" length="10753436" type="audio/mpeg"/>
+      <pubDate>Sat, 14 Nov 2026 20:56:43 +0000</pubDate>
+      <itunes:duration>00:29:52</itunes:duration>
+    </item>
     <item>
       <title>2026-11-14 曇り空の朝に開く表現のドア、絵画とことばが街を変える瞬間</title>
       <description>見慣れた日常や歴史をあえて違った角度から捉え直し、表現が持つ変革の力に耳を澄ます</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260914/radio-2026-09-14.mp3" length="11106813" type="audio/mpeg"/>
       <pubDate>Sun, 13 Sep 2026 18:57:51 +0000</pubDate>
       <itunes:duration>00:30:51</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-13 霧雨の朝に巡る、一週間のニュースと社会の動脈</title>
-      <description>世界と身近な暮らしのニュースを貫く「流通と予測の仕組み」を解き明かす</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260913/radio-2026-09-13.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260913/radio-2026-09-13.mp3" length="10773165" type="audio/mpeg"/>
-      <pubDate>Sat, 12 Sep 2026 18:35:48 +0000</pubDate>
-      <itunes:duration>00:29:55</itunes:duration>
     </item>
   </channel>
 </rss>
