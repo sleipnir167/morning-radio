@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 15 Nov 2026 21:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 00:27:41 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-17 250億キロ先の電波と細胞の扉：極限の科学が変える私たちの現在地</title>
+      <description>極限のミクロから宇宙の果てまで、テクノロジーが広げる人間の境界線を歩く</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261117/radio-2026-11-17.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261117/radio-2026-11-17.mp3" length="10461404" type="audio/mpeg"/>
+      <pubDate>Tue, 17 Nov 2026 00:27:41 +0000</pubDate>
+      <itunes:duration>00:29:03</itunes:duration>
+    </item>
     <item>
       <title>2026-11-16 数字と論理で読み解く、政治が動く本当の理由</title>
       <description>ニュースの表面的なスローガンを剥がし、制度や歴史の構造から政治の裏側を解き明かす</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260916/radio-2026-09-16.mp3" length="10427997" type="audio/mpeg"/>
       <pubDate>Tue, 15 Sep 2026 19:54:30 +0000</pubDate>
       <itunes:duration>00:28:57</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-15 雨音と細胞のゆらぎ——ミクロの記憶から宇宙のゴミまで巡る朝</title>
-      <description>目に見えないミクロの構造とマクロなルールが、私たちの未来と安全をどう形作るかを探る</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260915/radio-2026-09-15.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260915/radio-2026-09-15.mp3" length="10150221" type="audio/mpeg"/>
-      <pubDate>Mon, 14 Sep 2026 20:27:28 +0000</pubDate>
-      <itunes:duration>00:28:11</itunes:duration>
     </item>
   </channel>
 </rss>
