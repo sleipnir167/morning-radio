@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 17 Nov 2026 23:44:13 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 23:22:13 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-19 冷える朝に耳をすます、からだと睡眠を動かす小さなスイッチ</title>
+      <description>睡眠と自律神経の微細なメカニズムを知り、日々の不調を根本から整える</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261119/radio-2026-11-19.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261119/radio-2026-11-19.mp3" length="10873964" type="audio/mpeg"/>
+      <pubDate>Wed, 18 Nov 2026 23:22:13 +0000</pubDate>
+      <itunes:duration>00:30:12</itunes:duration>
+    </item>
     <item>
       <title>2026-11-18 過去の足跡と地図の裏側：土地と歴史が隠す秘密を歩く朝</title>
       <description>私たちが当たり前に歩く土地や歴史の裏に眠る、忘れられた構造と仕組みを読み解く</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260919/radio-2026-09-19.mp3" length="10749117" type="audio/mpeg"/>
       <pubDate>Sat, 19 Sep 2026 07:52:40 +0000</pubDate>
       <itunes:duration>00:29:51</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-17 霧雨の朝に耳をすます、眠りの深さとからだの声</title>
-      <description>脳と体の休養メカニズムを知り、テクノロジーと知恵で自らのコンディションを整える</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260917/radio-2026-09-17.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260917/radio-2026-09-17.mp3" length="11129421" type="audio/mpeg"/>
-      <pubDate>Wed, 16 Sep 2026 19:47:36 +0000</pubDate>
-      <itunes:duration>00:30:54</itunes:duration>
     </item>
   </channel>
 </rss>
