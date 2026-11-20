@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 19 Nov 2026 23:14:16 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 22:50:22 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-21 耳をすませば言葉が躍る、冬晴れの朝にアートを連れて散歩する</title>
+      <description>表現と言葉の視点で日常を解釈し直し、当たり前の街の景色を愛おしく塗り替える</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261121/radio-2026-11-21.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261121/radio-2026-11-21.mp3" length="10823276" type="audio/mpeg"/>
+      <pubDate>Fri, 20 Nov 2026 22:50:22 +0000</pubDate>
+      <itunes:duration>00:30:03</itunes:duration>
+    </item>
     <item>
       <title>2026-11-20 世界の熱狂とリアルな本音：スクリーン越しに動き出す異文化の地殻変動</title>
       <description>ゲーム、環境規制、最新広告から見えてくる、世界の人々がいま熱狂し悩む「異文化のリアル」を紐解く</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260921/radio-2026-09-21.mp3" length="10725357" type="audio/mpeg"/>
       <pubDate>Sun, 20 Sep 2026 19:05:09 +0000</pubDate>
       <itunes:duration>00:29:47</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-20 雨がにじむ境界線、伝統のハイブリッドと山の迷い熊</title>
-      <description>今週の出来事から紐解く、異なる世界が交差し境界線が溶け合う時代の変化</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260920/radio-2026-09-20.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260920/radio-2026-09-20.mp3" length="10820253" type="audio/mpeg"/>
-      <pubDate>Sat, 19 Sep 2026 18:53:35 +0000</pubDate>
-      <itunes:duration>00:30:03</itunes:duration>
     </item>
   </channel>
 </rss>
