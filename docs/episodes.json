@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-22",
+    "title": "冬晴れの朝にひもとく、世界と日常を動かす一週間",
+    "summary": "大国の外交から身近な経済や暦の節目まで、ニュースの裏にある仕組みを読み解く",
+    "genre": "今週の総集編と深掘り",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261122/radio-2026-11-22.mp3",
+    "script_url": "scripts/2026-11-22.md",
+    "size": 11264060,
+    "duration": 1877,
+    "published": "2026-11-21T21:50:43.888869+00:00"
+  },
+  {
     "date": "2026-11-21",
     "title": "耳をすませば言葉が躍る、冬晴れの朝にアートを連れて散歩する",
     "summary": "表現と言葉の視点で日常を解釈し直し、当たり前の街の景色を愛おしく塗り替える",
@@ -647,16 +658,5 @@
     "size": 10938045,
     "duration": 1822,
     "published": "2026-09-21T20:41:13.657600+00:00"
-  },
-  {
-    "date": "2026-09-21",
-    "title": "雨音が映すこの国の姿、変わりゆく世界と変わらない構造",
-    "summary": "現状維持の引力に抗う——超高齢社会と硬直する政治・労働市場を動かす変革の視点",
-    "genre": "政治・時事ニュース解説",
-    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20260921/radio-2026-09-21.mp3",
-    "script_url": "scripts/2026-09-21.md",
-    "size": 10725357,
-    "duration": 1787,
-    "published": "2026-09-20T19:05:09.913952+00:00"
   }
 ]

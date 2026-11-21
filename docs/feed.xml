@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 20 Nov 2026 22:50:22 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 21:50:43 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-22 冬晴れの朝にひもとく、世界と日常を動かす一週間</title>
+      <description>大国の外交から身近な経済や暦の節目まで、ニュースの裏にある仕組みを読み解く</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261122/radio-2026-11-22.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261122/radio-2026-11-22.mp3" length="11264060" type="audio/mpeg"/>
+      <pubDate>Sat, 21 Nov 2026 21:50:43 +0000</pubDate>
+      <itunes:duration>00:31:17</itunes:duration>
+    </item>
     <item>
       <title>2026-11-21 耳をすませば言葉が躍る、冬晴れの朝にアートを連れて散歩する</title>
       <description>表現と言葉の視点で日常を解釈し直し、当たり前の街の景色を愛おしく塗り替える</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260922/radio-2026-09-22.mp3" length="10938045" type="audio/mpeg"/>
       <pubDate>Mon, 21 Sep 2026 20:41:13 +0000</pubDate>
       <itunes:duration>00:30:22</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-21 雨音が映すこの国の姿、変わりゆく世界と変わらない構造</title>
-      <description>現状維持の引力に抗う——超高齢社会と硬直する政治・労働市場を動かす変革の視点</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260921/radio-2026-09-21.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260921/radio-2026-09-21.mp3" length="10725357" type="audio/mpeg"/>
-      <pubDate>Sun, 20 Sep 2026 19:05:09 +0000</pubDate>
-      <itunes:duration>00:29:47</itunes:duration>
     </item>
   </channel>
 </rss>
