@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 22 Nov 2026 22:04:10 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 03:14:31 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-24 雨上がりの街に響く、世界の「解像度」を書き換える科学の最前線</title>
+      <description>目に見えない波長と分子をあやつり、現実の精度と可能性を拡張する最新テクノロジー</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261124/radio-2026-11-24.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261124/radio-2026-11-24.mp3" length="10875692" type="audio/mpeg"/>
+      <pubDate>Tue, 24 Nov 2026 03:14:31 +0000</pubDate>
+      <itunes:duration>00:30:12</itunes:duration>
+    </item>
     <item>
       <title>2026-11-23 決める力の裏側を歩く、冬晴れの政治ニュース解剖学</title>
       <description>合意形成が難しくなる時代に、政治が「決定」を下すための仕組みと葛藤を読み解く。</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260924/radio-2026-09-24.mp3" length="9225885" type="audio/mpeg"/>
       <pubDate>Wed, 23 Sep 2026 19:49:48 +0000</pubDate>
       <itunes:duration>00:25:37</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-23 国境と都の始まりを巡る、秋分の朝の境界線ラジオ</title>
-      <description>人類が引いてきた「境界線」の歴史と、自然が溶かすグラデーションを味わう</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260923/radio-2026-09-23.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260923/radio-2026-09-23.mp3" length="10117101" type="audio/mpeg"/>
-      <pubDate>Tue, 22 Sep 2026 20:06:07 +0000</pubDate>
-      <itunes:duration>00:28:06</itunes:duration>
     </item>
   </channel>
 </rss>
