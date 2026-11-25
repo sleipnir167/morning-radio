@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-25",
+    "title": "冷たい風と土地の記憶：地図の余白に眠る歴史を歩く朝",
+    "summary": "地形と交易、そして災害が形作った人と土地の歴史をひもとく",
+    "genre": "歴史・地理の雑学",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261125/radio-2026-11-25.mp3",
+    "script_url": "scripts/2026-11-25.md",
+    "size": 10956044,
+    "duration": 1825,
+    "published": "2026-11-25T01:01:36.481133+00:00"
+  },
+  {
     "date": "2026-11-24",
     "title": "雨上がりの街に響く、世界の「解像度」を書き換える科学の最前線",
     "summary": "目に見えない波長と分子をあやつり、現実の精度と可能性を拡張する最新テクノロジー",
@@ -647,16 +658,5 @@
     "size": 10873677,
     "duration": 1812,
     "published": "2026-09-24T20:14:51.861946+00:00"
-  },
-  {
-    "date": "2026-09-24",
-    "title": "霧雨の朝に整える、食べる仕組みと眠りの科学",
-    "summary": "幼少期の栄養から最新の睡眠科学まで、健康とからだの構造を解き明かす",
-    "genre": "健康・からだと睡眠",
-    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20260924/radio-2026-09-24.mp3",
-    "script_url": "scripts/2026-09-24.md",
-    "size": 9225885,
-    "duration": 1537,
-    "published": "2026-09-23T19:49:48.099100+00:00"
   }
 ]
