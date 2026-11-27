@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 25 Nov 2026 01:01:36 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 00:59:23 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-27 霧雨の道を踏みしめて聴く、国境を越える文化と情熱の地殻変動</title>
+      <description>ニュースの深層から伝統・食まで、国境を越えて交錯する世界の人々と異文化の地殻変動</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261127/radio-2026-11-27.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261127/radio-2026-11-27.mp3" length="10827740" type="audio/mpeg"/>
+      <pubDate>Fri, 27 Nov 2026 00:59:23 +0000</pubDate>
+      <itunes:duration>00:30:04</itunes:duration>
+    </item>
     <item>
       <title>2026-11-25 冷たい風と土地の記憶：地図の余白に眠る歴史を歩く朝</title>
       <description>地形と交易、そして災害が形作った人と土地の歴史をひもとく</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260926/radio-2026-09-26.mp3" length="8862861" type="audio/mpeg"/>
       <pubDate>Fri, 25 Sep 2026 20:11:04 +0000</pubDate>
       <itunes:duration>00:24:37</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-25 雨の朝、国境を越える文化の風に吹かれて——個人主義とつながりの新時代</title>
-      <description>世界を動かす「個」の台頭と、異文化が織りなす共感と摩擦の構造を紐解く</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260925/radio-2026-09-25.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260925/radio-2026-09-25.mp3" length="10873677" type="audio/mpeg"/>
-      <pubDate>Thu, 24 Sep 2026 20:14:51 +0000</pubDate>
-      <itunes:duration>00:30:12</itunes:duration>
     </item>
   </channel>
 </rss>
