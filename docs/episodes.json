@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-28",
+    "title": "雨の街を彩る五感の記憶と、光が紡ぐ言葉たち",
+    "summary": "目に見えない感覚や歴史をアートと言葉で可視化し、日常の解像度を上げる散歩道",
+    "genre": "カルチャー・アート・ことば",
+    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20261128/radio-2026-11-28.mp3",
+    "script_url": "scripts/2026-11-28.md",
+    "size": 10448156,
+    "duration": 1741,
+    "published": "2026-11-28T00:18:05.984557+00:00"
+  },
+  {
     "date": "2026-11-27",
     "title": "霧雨の道を踏みしめて聴く、国境を越える文化と情熱の地殻変動",
     "summary": "ニュースの深層から伝統・食まで、国境を越えて交錯する世界の人々と異文化の地殻変動",
@@ -647,16 +658,5 @@
     "size": 9764877,
     "duration": 1627,
     "published": "2026-09-26T19:23:21.324594+00:00"
-  },
-  {
-    "date": "2026-09-26",
-    "title": "雨音が描くモダニズムと、ことばの生まれる場所",
-    "summary": "時代と境界を越えて共鳴する、美術・文学・音楽のポリフォニー",
-    "genre": "カルチャー・アート・ことば",
-    "audio_url": "https://github.com/sleipnir167/morning-radio/releases/download/ep-20260926/radio-2026-09-26.mp3",
-    "script_url": "scripts/2026-09-26.md",
-    "size": 8862861,
-    "duration": 1477,
-    "published": "2026-09-25T20:11:04.680772+00:00"
   }
 ]

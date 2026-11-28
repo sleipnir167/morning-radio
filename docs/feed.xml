@@ -8,10 +8,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 27 Nov 2026 00:59:23 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 00:18:06 +0000</lastBuildDate>
     <itunes:author>ナナ</itunes:author>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
+    <item>
+      <title>2026-11-28 雨の街を彩る五感の記憶と、光が紡ぐ言葉たち</title>
+      <description>目に見えない感覚や歴史をアートと言葉で可視化し、日常の解像度を上げる散歩道</description>
+      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20261128/radio-2026-11-28.mp3</guid>
+      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20261128/radio-2026-11-28.mp3" length="10448156" type="audio/mpeg"/>
+      <pubDate>Sat, 28 Nov 2026 00:18:05 +0000</pubDate>
+      <itunes:duration>00:29:01</itunes:duration>
+    </item>
     <item>
       <title>2026-11-27 霧雨の道を踏みしめて聴く、国境を越える文化と情熱の地殻変動</title>
       <description>ニュースの深層から伝統・食まで、国境を越えて交錯する世界の人々と異文化の地殻変動</description>
@@ -483,14 +491,6 @@
       <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260927/radio-2026-09-27.mp3" length="9764877" type="audio/mpeg"/>
       <pubDate>Sat, 26 Sep 2026 19:23:21 +0000</pubDate>
       <itunes:duration>00:27:07</itunes:duration>
-    </item>
-    <item>
-      <title>2026-09-26 雨音が描くモダニズムと、ことばの生まれる場所</title>
-      <description>時代と境界を越えて共鳴する、美術・文学・音楽のポリフォニー</description>
-      <guid isPermaLink="false">https://github.com/sleipnir167/morning-radio/releases/download/ep-20260926/radio-2026-09-26.mp3</guid>
-      <enclosure url="https://github.com/sleipnir167/morning-radio/releases/download/ep-20260926/radio-2026-09-26.mp3" length="8862861" type="audio/mpeg"/>
-      <pubDate>Fri, 25 Sep 2026 20:11:04 +0000</pubDate>
-      <itunes:duration>00:24:37</itunes:duration>
     </item>
   </channel>
 </rss>
